@@ -38,6 +38,15 @@ const routerData = [
     },
   },
   {
+    path: '/user/signup',
+    element: <Login />,
+    layoutInfo: {
+      isHeader: true,
+      isMainContentWidthScreen: true,
+      isFooter: true,
+    },
+  },
+  {
     path: '/user/profile',
     element: <UserProfile />,
     layoutInfo: {
