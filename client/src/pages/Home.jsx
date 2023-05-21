@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import {
   fetchPopularDevelopmentsAction,
   fetchRealTimeDevelopmentsAction,
+  fetchAllDevelopmentsAction,
 } from '../store/developmentSlice';
 
 import Carousel from '../components/Carousel';
@@ -18,12 +19,15 @@ const CaurouselConfig = {
 };
 
 function Home() {
-  const { popularRanking, realTimeRanking } = useSelector(state => state.development);
+  const { popularRanking, realTimeRanking, allDevelopments } = useSelector(
+    state => state.developments,
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPopularDevelopmentsAction());
     dispatch(fetchRealTimeDevelopmentsAction());
+    dispatch(fetchAllDevelopmentsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -51,7 +55,7 @@ function Home() {
           <h3 className="text-[1.6rem] font-bold  mb-[3rem]">실시간 순위</h3>
           <div className="flex justify-between">
             {realTimeRanking.data.map(info => (
-              <Card key={info.id} width="31.5%">
+              <Card key={info.postId} width="31.5%">
                 <Item {...info} />
               </Card>
             ))}
@@ -61,7 +65,7 @@ function Home() {
           <h3 className="text-[1.6rem] font-bold  mb-[3rem]">인기 게시물</h3>
           <div className="flex justify-between">
             {popularRanking.data.map((info, index) => (
-              <Card key={info.id} width="31.5%">
+              <Card key={info.postId} width="31.5%">
                 <h1 className="pb-3 mb-7 text-lg font-medium border-b-[1px] border-solid border-gray4">
                   {/* eslint-disable-next-line no-nested-ternary */}
                   {index === 0 ? '글' : index === 1 ? '영상' : '트렌드'}
@@ -77,7 +81,7 @@ function Home() {
           </h3>
           <div className="flex justify-between">
             {popularRanking.data.map(info => (
-              <Card key={info.id} width="31.5%">
+              <Card key={info.postId} width="31.5%">
                 <Item {...info} />
               </Card>
             ))}
