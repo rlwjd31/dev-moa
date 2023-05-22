@@ -9,6 +9,7 @@ import { ReactComponent as ChevronDown } from '../assets/chevron-down.svg';
 import { ReactComponent as Pencil } from '../assets/pencil.svg';
 import { ReactComponent as ChevronRight } from '../assets/chevron-right.svg';
 import { ReactComponent as ChevronLeft } from '../assets/chevron-left.svg';
+import { ReactComponent as Heart } from '../assets/heart.svg';
 
 const validateClassName = className => {
   return typeof className === 'string' && className.length > 0 ? { className } : '';
@@ -58,4 +59,7 @@ export function KakaoIcon({ className }) {
   return <KakaoLogo {...validateClassName(className)} />;
 }
 
+export function HeartIcon({ className }) {
+  return <Heart {...validateClassName(className)} />;
+}
 export default {};

@@ -1,4 +1,4 @@
-function Comment() {
+function UserComment() {
   return (
     <div className="w-[50rem] flex flex-col border-solid border-b-[1px] border-gray12 py-[22px]">
       <p className="font-medium text-[15px] text-black3">comment.content</p>
@@ -10,4 +10,4 @@ function Comment() {
   );
 }
 
-export default Comment;
+export default UserComment;

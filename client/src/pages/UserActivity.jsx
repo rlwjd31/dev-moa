@@ -3,7 +3,7 @@ import { Tabs, TabItem } from '../components/UI/Tab';
 import Aside from '../components/layout/Aside';
 import Card from '../components/UI/Card';
 import Item from '../components/Item';
-import Comment from '../components/UI/Comment';
+import UserComment from '../components/UI/UserComment';
 
 const BASE_URL = 'http://localhost:5173';
 
@@ -42,9 +42,9 @@ function UserActivity() {
               총 3개
             </p>
             <div className="flex flex-col">
-              <Comment />
-              <Comment />
-              <Comment />
+              <UserComment />
+              <UserComment />
+              <UserComment />
             </div>
           </TabItem>
         </Tabs>
