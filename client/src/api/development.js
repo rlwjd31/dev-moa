@@ -23,7 +23,6 @@ export const fetchPopularDevelopments = async (something, rejectWithValue) => {
 };
 
 export const fetchRealTimeDevelopments = async (something, rejectWithValue) => {
-  // console.log(`axios.get.baseurl`, axios.defaults.baseURL);
   try {
     const response = await axios.get(`${realTimeRankingEndpoint}`);
 

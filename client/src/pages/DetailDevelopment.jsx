@@ -23,7 +23,6 @@ function DetailDevelopment() {
     data.createdAt.slice(8, 10),
   ];
   const createdAt = `${year}년 ${month}월 ${day}일`;
-  console.log(`data.sourceURL`, data.sourceURL);
   return (
     <div className="flex flex-col">
       <div className="w-[1080px] flex flex-col border-b-[1px] border-solid pt-[90px] pb-[20px]">
@@ -59,7 +58,7 @@ function DetailDevelopment() {
         </div>
       </div>
       <div className="content border-b-[1px] border-solid">
-        <Link to={data.sourceURL}>
+        <Link target="_blank" to={data.sourceURL}>
           <img
             className="w-full h-[598px] my-[50px]"
             src={data.thumbnailImage}
