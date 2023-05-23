@@ -16,6 +16,7 @@ function DetailDevelopment() {
   const data = allDevelopments.data.filter(
     developInfo => developInfo.postId === +postId,
   )[0];
+  console.log(allDevelopments);
 
   const [year, month, day] = [
     data.createdAt.slice(0, 4),

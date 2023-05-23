@@ -47,7 +47,7 @@ function AllDevelopments() {
     .filter(developmentInfo =>
       filterValue.tag === 'All'
         ? true
-        : developmentInfo.tags[0].tags
+        : developmentInfo.tags
             .map(v => v.toLowerCase())
             .includes(filterValue.tag.toLowerCase()),
     )
