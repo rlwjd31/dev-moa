@@ -13,18 +13,18 @@ function AddComment() {
           <StarIcon />
         </div>
         <textarea
-          className="w-full h-[7rem] bg-gray2 pt-[18px] px-[10px] focus:outline-none "
+          className="w-full h-[7rem] bg-gray2 pt-[18px] px-[10px] focus:outline-none resize-none "
           placeholder="댓글을 작성하세요"
           name="content"
           wrap="hard"
         />
       </div>
-      <button
+      <Button
         type="submit"
-        className="w-[75px] h-[42px] bg-gray5 text-white text-[15px] font-medium text-center"
+        className="w-[75px] h-[42px] bg-gray5 text-white text-[15px] font-medium"
       >
         등록
-      </button>
+      </Button>
     </form>
   );
 }

@@ -1,4 +1,5 @@
 import ProfileContent from '../components/ProfileContent';
+import Star from '../components/Star';
 import Aside from '../components/layout/Aside';
 
 const BASE_URL = 'http://localhost:5173';
@@ -14,6 +15,7 @@ function UserProfile() {
         }}
       />
       <ProfileContent />
+      <Star />
     </>
   );
 }

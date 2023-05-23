@@ -7,6 +7,7 @@ import PageNotFound from './pages/PageNotFound';
 import UserProfile from './pages/UserProfile';
 import UserActivity from './pages/UserActivity';
 import AllDevelopment from './pages/AllDevelopments';
+import DetailDevelopment from './pages/DetailDevelopment';
 
 const routerData = [
   {
@@ -22,6 +23,15 @@ const routerData = [
   {
     path: '/developments',
     element: <AllDevelopment />,
+    layoutInfo: {
+      isHeader: true,
+      isMainContentWidthScreen: false,
+      isFooter: true,
+    },
+  },
+  {
+    path: '/developments/:postId',
+    element: <DetailDevelopment />,
     layoutInfo: {
       isHeader: true,
       isMainContentWidthScreen: false,

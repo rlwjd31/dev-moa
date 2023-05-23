@@ -4,7 +4,7 @@ function Button({ value, onClick, className, children }) {
       type="button"
       onClick={onClick}
       value={value}
-      className={`flex items-center ${className}`}
+      className={`flex items-center justify-center ${className}`}
     >
       {children}
     </button>
