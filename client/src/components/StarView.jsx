@@ -1,8 +1,8 @@
 import { StarIcon } from './Icons';
 import { useState, useEffect } from 'react';
 
-function Star() {
-  const AVR_RATE = 80;
+function StarView() {
+  const AVR_RATE = 70;
   const STAR_IDX_ARR = ['first', 'second', 'third', 'fourth', 'last'];
   const [ratesResArr, setRatesResArr] = useState([0, 0, 0, 0, 0]);
   const calcStarRates = () => {
@@ -53,4 +53,4 @@ function Star() {
   );
 }
 
-export default Star;
+export default StarView;

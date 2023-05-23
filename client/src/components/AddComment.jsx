@@ -1,4 +1,5 @@
 import { StarIcon } from './Icons';
+import StarClick from './StarClick';
 import Button from './UI/Button';
 
 function AddComment() {
@@ -6,11 +7,7 @@ function AddComment() {
     <form className="flex flex-col items-end">
       <div className="w-full h-[12.5rem] bg-gray2 py-[24px] px-[30px] my-[38px]">
         <div className="flex pb-[18px] border-b-[1px] border-solid border-gray12">
-          <StarIcon />
-          <StarIcon />
-          <StarIcon />
-          <StarIcon />
-          <StarIcon />
+          <StarClick />
         </div>
         <textarea
           className="w-full h-[7rem] bg-gray2 pt-[18px] px-[10px] focus:outline-none resize-none "
