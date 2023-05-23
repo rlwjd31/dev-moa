@@ -82,10 +82,12 @@ function DetailDevelopment() {
           <p className="py-[50px] text-[24px] text-black3 font-bold pr-[29px]">
             이 글의 총 평점
           </p>
-          <p className="flex text-[24px] text-gray5 font-medium items-center">
-            <StarIcon className="pr-[17px]" />
-            {data.starAvg}
-          </p>
+          <div className="flex">
+            <p className="text-[24px] text-[#7199ff] pr-[17px]">&#9733;</p>
+            <p className="flex text-[24px] text-gray5 font-medium items-center">
+              {data.starAvg}
+            </p>
+          </div>
         </div>
         <div>
           <p className="text-[20px] font-bold text-black3">
@@ -93,9 +95,9 @@ function DetailDevelopment() {
           </p>
           <AddComment />
           <div className="mb-[52px]">
-            <DevComment />
-            <DevComment />
-            <DevComment />
+            {data.comments.map((el, idx) => (
+              <DevComment key={idx} commentInfo={el} />
+            ))}
           </div>
         </div>
       </div>
