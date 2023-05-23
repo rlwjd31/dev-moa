@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import { fetchAllDevelopmentsAction } from '../store/developmentSlice';
 
 import { HeartIcon, StarIcon } from '../components/Icons';
@@ -10,15 +11,11 @@ import Button from '../components/UI/Button';
 
 function DetailDevelopment() {
   const { allDevelopments } = useSelector(state => state.developments);
-
-  console.log(`allDevelopments 💚`, allDevelopments);
-
-  // useEffect(() => {
-  //   dispatch(fetchAllDevelopmentsAction());
-  //   console.log(allDevelopments.data[0]);
-  // }, []);
-
-  const data = allDevelopments.data[0];
+  const { postId } = useParams();
+  // const data = allDevelopments.data[0];
+  const data = allDevelopments.data.filter(
+    developInfo => developInfo.postId === +postId,
+  )[0];
 
   const [year, month, day] = [
     data.createdAt.slice(0, 4),
@@ -26,14 +23,14 @@ function DetailDevelopment() {
     data.createdAt.slice(8, 10),
   ];
   const createdAt = `${year}년 ${month}월 ${day}일`;
-
+  console.log(`data.sourceURL`, data.sourceURL);
   return (
     <div className="flex flex-col">
       <div className="w-[1080px] flex flex-col border-b-[1px] border-solid pt-[90px] pb-[20px]">
         <div className="w-full flex justify-between">
           <h2 className="font-bold text-[40px] text-black3 ">{data.title}</h2>
           <div className="flex flex-col items-center">
-            <button>
+            <button type="button">
               <HeartIcon className="w-[33px] h-[31px] border-gray5" />
             </button>
             <p className="text-[15p] font-normal text-gray5 pt-[18px]">
@@ -48,10 +45,11 @@ function DetailDevelopment() {
         </div>
         <div className="top-3 flex justify-between py-[10px]">
           <div className="flex">
-            <Tags tagName={data.sorta} className={'bg-black3 text-white'} />
-            {data.tags[0].tags.map(el => {
-              <Tags tagName={el} />;
-            })}
+            <Tags tagName={data.sorta} className="bg-black3 text-white" />
+            {data.tags[0].tags.map((el, index) => (
+              // eslint-disable-next-line no-undef, react/no-array-index-key
+              <Tags key={index} tagName={el} />
+            ))}
           </div>
           <div className="flex items-center">
             <Button className="text-gray5">수정</Button>
@@ -61,13 +59,13 @@ function DetailDevelopment() {
         </div>
       </div>
       <div className="content border-b-[1px] border-solid">
-        <a>
+        <Link to={data.sourceURL}>
           <img
             className="w-full h-[598px] my-[50px]"
             src={data.thumbnailImage}
             alt="썸네일 및 대표 사진"
           />
-        </a>
+        </Link>
         <div className="flex">
           <StarIcon />
           <StarIcon />
