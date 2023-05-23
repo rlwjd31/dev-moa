@@ -45,7 +45,7 @@ function DetailDevelopment() {
         <div className="top-3 flex justify-between py-[10px]">
           <div className="flex">
             <Tags tagName={data.sorta} className="bg-black3 text-white" />
-            {data.tags[0].tags.map((el, index) => (
+            {data.tags.map((el, index) => (
               // eslint-disable-next-line no-undef, react/no-array-index-key
               <Tags key={index} tagName={el} />
             ))}
