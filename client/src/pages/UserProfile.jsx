@@ -1,5 +1,4 @@
 import ProfileContent from '../components/ProfileContent';
-import Star from '../components/StarView';
 import Aside from '../components/layout/Aside';
 
 const BASE_URL = 'http://localhost:5173';

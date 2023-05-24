@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from '../utils/axios';
 
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
@@ -161,7 +161,9 @@ function Login() {
             <p className="text-black3 text-[12px] font-bold pr-[5px]">
               아직 계정이 없으신가요?
             </p>
-            <p className="text-activeBlue text-[12px] font-bold">회원가입</p>
+            <Link to="/user/signup">
+              <p className="text-activeBlue text-[12px] font-bold">회원가입</p>
+            </Link>
           </div>
         )}
       </div>
