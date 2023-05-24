@@ -22,8 +22,28 @@ const fetchLogin = async loginInfo => {
   return null;
 };
 
+const fetchSignUp = async signUpInfo => {
+  const path = 'user/signup';
+
+  const generateRandomNum = () => {
+    const num = Math.floor(Math.random() * 10);
+    setProfileImgNum(num);
+  } 
+
+  const body = signUpInfo;
+  
+  try {
+    const rep = await instanceAxios.post(path, body)
+  }
+}
+
 function Login() {
+  const [profileImgNum, setProfileImgNum] = useState(null);
   const location = useLocation();
+  const isLoginPage = location.pathname === '/user/login';
+  const isSignUpPage = location.pathname === '/user/signup';
+
+  
 
   const [loginInfo, setLoginInfo] = useState({
     userId: '',
@@ -34,19 +54,21 @@ function Login() {
     userName: '',
     userId: '',
     password: '',
+    profileImgNum: generateRandomNum(),
   });
 
-  const onLoginSubmitHandler = e => {
+  const onSubmitHandler = e => {
     e.preventDefault();
-    if (location.pathname === '/user/login') {
+    if (isLoginPage) {
       const userData = fetchLogin(loginInfo);
       console.log('response.data ->', userData);
-    } else {
+    } else if (isSignUpPage) {
+
     }
   };
 
   const onEmailChangeHandler = e => {
-    if (location.pathname === '/user/login') {
+    if (isLoginPage) {
       setLoginInfo(prev => ({ ...prev, userId: e.target.value }));
     } else {
       setSignUpInfo(prev => ({ ...prev, userId: e.target.value }));
@@ -54,7 +76,7 @@ function Login() {
   };
 
   const onPasswordChangeHandler = e => {
-    if (location.pathname === '/user/login') {
+    if (isLoginPage) {
       setLoginInfo(prev => ({ ...prev, password: e.target.value }));
     } else {
       setSignUpInfo(prev => ({ ...prev, password: e.target.value }));
@@ -72,10 +94,10 @@ function Login() {
     <div className="my-[9.6rem] flex justify-center items-center pt-[180px]">
       <div className="w-[33.5rem] h-[31.5rem] px-[3rem] flex flex-col">
         <p className="text-[30px] text-black3 font-bold text-center">
-          {location.pathname === '/user/login' ? '로그인' : '회원가입'}
+          {isLoginPage ? '로그인' : '회원가입'}
         </p>
-        <form onSubmit={onLoginSubmitHandler} className="mt-[3.75rem] py-[15px] flex-col">
-          {location.pathname === '/user/signup' && (
+        <form onSubmit={onSubmitHandler} className="mt-[3.75rem] py-[15px] flex-col">
+          {isSignUpPage && (
             <input
               onChange={onNameChangeHandler}
               type="text"
@@ -102,15 +124,15 @@ function Login() {
             type="submit"
             className="mt-[32px] w-full h-[3.5rem] bg-black3 text-gray1 text-[14px] font-bold text-center"
           >
-            {location.pathname === '/user/login' ? '로그인하기' : '회원가입하기'}
+            {isLoginPage ? '로그인하기' : '회원가입하기'}
           </button>
         </form>
-        {location.pathname === '/user/login' && (
+        {isLoginPage && (
           <p className="text-right font-bold text-[12px] text-gray11 cursor-pointer">
             비밀번호 찾기
           </p>
         )}
-        {location.pathname === '/user/login' && (
+        {isLoginPage && (
           <div className="w-full flex justify-between mt-[2.7rem] px-[8.5rem] ">
             <button
               type="button"
@@ -132,10 +154,10 @@ function Login() {
             </button>
           </div>
         )}
-        {location.pathname === '/user/login' && (
+        {isLoginPage && (
           <div className="my-[26px] mx-[12.5rem] border-t-[1px] border-solid border-gray8" />
         )}
-        {location.pathname === '/user/login' && (
+        {isLoginPage && (
           <div className="flex justify-center">
             <p className="text-black3 text-[12px] font-bold pr-[5px]">
               아직 계정이 없으신가요?
