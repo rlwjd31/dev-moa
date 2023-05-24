@@ -8,6 +8,7 @@ import UserProfile from './pages/UserProfile';
 import UserActivity from './pages/UserActivity';
 import AllDevelopment from './pages/AllDevelopments';
 import DetailDevelopment from './pages/DetailDevelopment';
+import NewPost from './pages/NewPost';
 
 const routerData = [
   {
@@ -32,6 +33,15 @@ const routerData = [
   {
     path: '/developments/:postId',
     element: <DetailDevelopment />,
+    layoutInfo: {
+      isHeader: true,
+      isMainContentWidthScreen: false,
+      isFooter: true,
+    },
+  },
+  {
+    path: '/developments/new',
+    element: <NewPost />,
     layoutInfo: {
       isHeader: true,
       isMainContentWidthScreen: false,
