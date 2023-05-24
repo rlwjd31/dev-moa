@@ -8,42 +8,42 @@ const instanceAxios = axios.create({
   withCredentials: true,
 });
 
-const fetchLogin = async loginInfo => {
-  const URL = 'http://localhost:4000/login';
-  const body = loginInfo;
-  console.log('body', body);
-  try {
-    const response = await instanceAxios.post(URL, body);
-    return response.data;
-  } catch (err) {
-    console.log(`error: ${err.message}`);
-  }
-
-  return null;
-};
-
-const fetchSignUp = async signUpInfo => {
-  const path = 'user/signup';
-
-  const generateRandomNum = () => {
-    const num = Math.floor(Math.random() * 10);
-    setProfileImgNum(num);
-  } 
-
-  const body = signUpInfo;
-  
-  try {
-    const rep = await instanceAxios.post(path, body)
-  }
-}
-
 function Login() {
   const [profileImgNum, setProfileImgNum] = useState(null);
   const location = useLocation();
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
 
-  
+  const generateRandomNum = () => {
+    const num = Math.floor(Math.random() * 10);
+    setProfileImgNum(num);
+  };
+
+  const fetchLogin = async loginInfo => {
+    const URL = 'http://localhost:4000/login';
+    const body = loginInfo;
+    console.log('body', body);
+    try {
+      const response = await instanceAxios.post(URL, body);
+      return response.data;
+    } catch (err) {
+      console.log(`error: ${err.message}`);
+    }
+
+    return null;
+  };
+
+  const fetchSignUp = async signUpInfo => {
+    const path = 'user/signup';
+    generateRandomNum();
+    try {
+      const res = await axios.post(path, signUpInfo);
+      return res.data;
+    } catch (err) {
+      console.log(`error : ${err.message}`);
+    }
+    return null;
+  };
 
   const [loginInfo, setLoginInfo] = useState({
     userId: '',
@@ -54,7 +54,7 @@ function Login() {
     userName: '',
     userId: '',
     password: '',
-    profileImgNum: generateRandomNum(),
+    profileImgNum: profileImgNum,
   });
 
   const onSubmitHandler = e => {
@@ -63,7 +63,8 @@ function Login() {
       const userData = fetchLogin(loginInfo);
       console.log('response.data ->', userData);
     } else if (isSignUpPage) {
-
+      const userData = fetchSignUp(signUpInfo);
+      console.log('response.data ->', userData);
     }
   };
 
