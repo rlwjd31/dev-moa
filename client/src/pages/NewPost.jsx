@@ -91,9 +91,10 @@ function NewPost() {
           />
         </ProfileLine>
         <ProfileLine title="태그" content="태그를 입력하세요" className="px-7 py-7">
-          {newPostInfo.tags.arr.map(tagName => (
+          {newPostInfo.tags.arr.map((tagName, index) => (
             <Tag
-              key={tagName}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
               onClick={() => {}}
               tagName={tagName}
               className="text-black3 bg-white"
