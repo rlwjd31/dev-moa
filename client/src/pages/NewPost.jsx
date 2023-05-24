@@ -1,25 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import StarRating from '../components/StarRating';
 import ProfileLine from '../components/UI/ProfileLine';
 import Tag from '../components/UI/Tag';
 import Input from '../components/UI/Input';
+import axios from '../utils/axios';
 
 function NewPost() {
   const [newPostInfo, setNewPostInfo] = useState({
     title: '',
     content: '',
-    link: '',
     tags: { arr: [], value: '' },
     sorta: '',
     star: 0,
+    memberId: 1, // 임의
+    thumbnailImage: 'https://images.velog.io/velog.png',
+    sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5',
   });
 
   // const onStarClickHandler = starValue => setStar(prev => starValue);
   const onStarClickHandler = starValue =>
     setNewPostInfo(prev => ({ ...prev, star: starValue }));
-  const onSortaClickHandler = newSortaValue =>
-    setNewPostInfo(prev => ({ ...prev, sorta: newSortaValue }));
+  const onSortaClickHandler = newSortaValue => {
+    let tmpSortaValue = '';
+
+    if (newSortaValue === '글') {
+      tmpSortaValue = 'text';
+    } else if (newSortaValue === '영상') {
+      tmpSortaValue = 'video';
+    } else if (newSortaValue === '트렌드') {
+      tmpSortaValue = 'trend';
+    }
+    setNewPostInfo(prev => ({ ...prev, sorta: tmpSortaValue }));
+  };
+
   const onTagsInputKeyDownHandler = e => {
     if (e.key === 'Enter') {
       setNewPostInfo(prev => ({
@@ -47,9 +61,24 @@ function NewPost() {
     setNewPostInfo(prev => ({ ...prev, title: e.target.value }));
   const onContentChangeHandler = e =>
     setNewPostInfo(prev => ({ ...prev, content: e.target.value }));
-  const onLinkChangeHandler = e =>
-    setNewPostInfo(prev => ({ ...prev, link: e.target.value }));
+  const onSourceURLChangeHandler = e =>
+    setNewPostInfo(prev => ({ ...prev, sourceURL: e.target.value }));
 
+  const onAddNewPostClickHandler = async () => {
+    const copyNewPost = { ...newPostInfo, tags: newPostInfo.tags.arr };
+    try {
+      const addNewDevelopmentPost = await axios.post('posts', copyNewPost);
+      if (addNewDevelopmentPost.status >= 200 && addNewDevelopmentPost.status < 300) {
+        console.log('✅ success!!', addNewDevelopmentPost.data);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  useEffect(() => {}, []);
+
+  console.log(newPostInfo);
   return (
     <div className="w-full mt-main-top flex flex-col">
       <h2>
@@ -86,8 +115,8 @@ function NewPost() {
           <Input
             placeholder="링크를 입력하세요"
             className="w-full text-gray13 bg-gray1 outline-none"
-            value={newPostInfo.link}
-            onChangeHandler={onLinkChangeHandler}
+            value={newPostInfo.sourceURL}
+            onChangeHandler={onSourceURLChangeHandler}
           />
         </ProfileLine>
         <ProfileLine title="태그" content="태그를 입력하세요" className="px-7 py-7">
@@ -115,7 +144,8 @@ function NewPost() {
               key={sorta}
               tagName={sorta}
               className={
-                sorta === newPostInfo.sorta
+                { 글: 'text', 영상: 'video', 트렌드: 'trend' }[sorta].toString() ===
+                newPostInfo.sorta.toString()
                   ? 'bg-black3 text-white'
                   : 'bg-white text-black3'
               }
@@ -129,6 +159,21 @@ function NewPost() {
         >
           <StarRating rating={newPostInfo.star} onStarClick={onStarClickHandler} />
         </ProfileLine>
+      </div>
+      <div className="w-full flex justify-center items-center mb-7">
+        <button
+          type="button"
+          className="border border-gray8 w-[4.75rem] h-[3rem] text-sm mr-[1.375rem]"
+        >
+          취소
+        </button>
+        <button
+          type="button"
+          className="border border-gray8 w-[4.75rem] h-[3rem] text-sm"
+          onClick={onAddNewPostClickHandler}
+        >
+          확인
+        </button>
       </div>
     </div>
   );
