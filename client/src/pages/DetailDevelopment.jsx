@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { fetchAllDevelopmentsAction } from '../store/developmentSlice';
 
 import { HeartIcon, StarIcon } from '../components/Icons';
-import Tags from '../components/UI/Tags';
+import Tag from '../components/UI/Tag';
 import DevComment from '../components/DevComment';
 import AddComment from '../components/AddComment';
 import Button from '../components/UI/Button';
@@ -45,10 +45,10 @@ function DetailDevelopment() {
         </div>
         <div className="top-3 flex justify-between py-[10px]">
           <div className="flex">
-            <Tags tagName={data.sorta} className="bg-black3 text-white" />
+            <Tag tagName={data.sorta} className="bg-black3 text-white" />
             {data.tags.map((el, index) => (
               // eslint-disable-next-line no-undef, react/no-array-index-key
-              <Tags key={index} tagName={el} />
+              <Tag key={index} tagName={el} />
             ))}
           </div>
           <div className="flex items-center">
