@@ -28,7 +28,10 @@ export default {
         gray10: '#858585',
         gray11: '#717171',
         gray12: '#C6C6C6',
+        gray13: '#9E9E9E',
         activeBlue: '#0045F6',
+        starBlue: '#7199ff',
+        starWhite: '#c3c3c3',
         kakaoYellow: '#FDDC3F',
       },
       fontFamily: {
