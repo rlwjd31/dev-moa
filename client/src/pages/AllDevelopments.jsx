@@ -43,6 +43,8 @@ function AllDevelopments() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(allDevelopments);
+
   const filteredDevelopments = allDevelopments.data
     .filter(developmentInfo =>
       filterValue.tag === 'All'

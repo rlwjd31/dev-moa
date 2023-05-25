@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+import { FileUploader } from 'react-drag-drop-files';
 
+import { redirect, useNavigate } from 'react-router-dom';
 import StarRating from '../components/StarRating';
 import ProfileLine from '../components/UI/ProfileLine';
 import Tag from '../components/UI/Tag';
 import Input from '../components/UI/Input';
 import axios from '../utils/axios';
+import convertToBase64 from '../utils/convertToBase64';
 
 function NewPost() {
   const [newPostInfo, setNewPostInfo] = useState({
@@ -14,9 +17,23 @@ function NewPost() {
     sorta: '',
     star: 0,
     memberId: 1, // 임의
-    thumbnailImage: 'https://images.velog.io/velog.png',
-    sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5',
+    sourceMedia: 'velog', // 임의
+    thumbnailImage: '', // 임의
+    sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5', // 임의
   });
+  const navigate = useNavigate();
+  const imageFileTypes = ['JPEG', 'PNG', 'GIF'];
+  // const [newPostInfo, setNewPostInfo] = useState({
+  //   title: '',
+  //   content: '',
+  //   tags: { arr: [], value: '' },
+  //   sorta: '',
+  //   star: 0,
+  //   memberId: 1, // 임의
+  //   sourceMedia: 'velog', // 임의
+  //   thumbnailImage: 'https://images.velog.io/velog.png', // 임의
+  //   sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5', // 임의
+  // });
 
   // const onStarClickHandler = starValue => setStar(prev => starValue);
   const onStarClickHandler = starValue =>
@@ -63,9 +80,20 @@ function NewPost() {
     setNewPostInfo(prev => ({ ...prev, content: e.target.value }));
   const onSourceURLChangeHandler = e =>
     setNewPostInfo(prev => ({ ...prev, sourceURL: e.target.value }));
+  // const onImageChangeHandler = async image => {
+  //   const imageFile = image[0];
+  //   const base64Image = await convertToBase64(imageFile);
+  //   setNewPostInfo(prev => ({ ...prev, thumbnailImage: base64Image }));
+  //   console.log('imageFile 👉🏻', imageFile);
+  //   console.log('base64Image 👇', base64Image);
+  // };
+
+  const onThumbnailChangeHandler = e =>
+    setNewPostInfo(prev => ({ ...prev, thumbnailImage: e.target.value }));
 
   const onAddNewPostClickHandler = async () => {
     const copyNewPost = { ...newPostInfo, tags: newPostInfo.tags.arr };
+    console.log('보낸 데이터 👉🏻', copyNewPost);
     try {
       const addNewDevelopmentPost = await axios.post('posts', copyNewPost);
       if (addNewDevelopmentPost.status >= 200 && addNewDevelopmentPost.status < 300) {
@@ -76,9 +104,8 @@ function NewPost() {
     }
   };
 
-  useEffect(() => {}, []);
-
   console.log(newPostInfo);
+
   return (
     <div className="w-full mt-main-top flex flex-col">
       <h2>
@@ -110,6 +137,33 @@ function NewPost() {
             value={newPostInfo.content}
             onChange={onContentChangeHandler}
           />
+        </ProfileLine>
+        <ProfileLine title="썸네일" content="링크를 입력하세요" className="px-7 py-7">
+          <div className="flex flex-col items-center">
+            {/* <FileUploader
+              multiple
+              handleChange={onImageChangeHandler}
+              name="file"
+              types={imageFileTypes}
+            /> */}
+            <Input
+              placeholder="썸네일을 입력하세요"
+              className="w-full text-gray13 bg-gray1 outline-none"
+              value={newPostInfo.thumbnailImage}
+              onChangeHandler={onThumbnailChangeHandler}
+            />
+            {/* <p className="mt-4">
+              {!newPostInfo.thumbnailImage && '이미지를 올려주세요😄'}
+            </p> */}
+            {newPostInfo.thumbnailImage && (
+              // eslint-disable-next-line jsx-a11y/img-redundant-alt
+              <img
+                className="mt-4"
+                src={`${newPostInfo.thumbnailImage}`}
+                alt="uploaded image"
+              />
+            )}
+          </div>
         </ProfileLine>
         <ProfileLine title="링크" content="링크를 입력하세요" className="px-7 py-7">
           <Input
@@ -172,7 +226,7 @@ function NewPost() {
           className="border border-gray8 w-[4.75rem] h-[3rem] text-sm"
           onClick={onAddNewPostClickHandler}
         >
-          확인
+          등록
         </button>
       </div>
     </div>

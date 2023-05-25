@@ -43,7 +43,7 @@ function Item(props) {
           </div>
           <div className="flex items-center">
             <div className="flex items-center">
-              <StarIcon className="mr-[9px] mb-[3px]" />
+              <StarIcon className="w-[15px] h-[15px] mr-[9px] mb-[3px] fill-[#7199ff]" />
               <p className="text-[12px] text-gray4 mr-[15px]">{starAvg}</p>
             </div>
             <div className="flex item-center">
