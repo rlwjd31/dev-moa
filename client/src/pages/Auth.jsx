@@ -1,32 +1,33 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
 import axios from '../utils/axios';
-
+import { getUserInfoAction } from '../store/user';
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
-import kakaoLogoImg from '../assets/kakaoLogoImg.png';
-import googleLogoImg from '../assets/googleLogoImg.png';
 
-const fetchLogin = async loginInfo => {
-  // const URL = 'https://567f-118-32-224-80.ngrok-free.app/auth/login';
-  const body = loginInfo;
-  console.log('보낸 이메일과 비밀번호', body);
-  console.log(`보낸 서버 주소 👉🏻 ${axios.defaults.baseURL}/auth/login`);
-  try {
-    const response = await axios.post('/auth/login', body);
-    console.log(`응답 헤더 👉🏻`, response.headers);
-    console.log(`응답 바디 👉🏻`, response.data);
-    return response.data;
-  } catch (err) {
-    console.log(`error: ${err.message}`);
-  }
+// const fetchLogin = async loginInfo => {
+//   // const URL = 'https://567f-118-32-224-80.ngrok-free.app/auth/login';
+//   const body = loginInfo;
+//   console.log('보낸 이메일과 비밀번호', body);
+//   console.log(`보낸 서버 주소 👉🏻 ${axios.defaults.baseURL}/auth/login`);
+//   try {
+//     const response = await axios.post('/auth/login', body);
+//     console.log(`응답 헤더 👉🏻`, response.headers);
+//     console.log(`응답 바디 👉🏻`, response.data);
+//     return response.data;
+//   } catch (err) {
+//     console.log(`error: ${err.message}`);
+//   }
 
-  return null;
-};
+//   return null;
+// };
 
 function Auth() {
   const location = useLocation();
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
+  const dispatch = useDispatch();
 
   const generateRandomNum = () => {
     return Math.floor(Math.random() * 10);
@@ -57,14 +58,14 @@ function Auth() {
     password: '',
   });
 
-  const onSubmitHandler = e => {
+  const onSubmitHandler = async e => {
     e.preventDefault();
     if (isLoginPage) {
-      const userData = fetchLogin(loginInfo);
-      console.log('response.data ->', userData);
+      dispatch(getUserInfoAction(loginInfo));
     } else if (isSignUpPage) {
       generateRandomNum();
-      fetchSignUp(signUpInfo);
+      const signUpResponse = fetchSignUp(signUpInfo);
+      console.log('signup response 👉🏻', signUpResponse);
     }
   };
 
@@ -86,6 +87,7 @@ function Auth() {
 
   const onNameChangeHandler = e =>
     setSignUpInfo(prev => ({ ...prev, userName: e.target.value }));
+
   return (
     <div className="my-[9.6rem] flex justify-center items-center pt-[180px]">
       <div className="w-[33.5rem] h-[31.5rem] px-[3rem] flex flex-col">
@@ -140,22 +142,14 @@ function Auth() {
               type="button"
               className="w-[2.6rem] h-[2.6rem] rounded-full bg-white flex justify-center items-center"
             >
-              <img
-                src={googleLogoImg}
-                alt="google-logo"
-                className="w-[1.6rem] h-[1.6rem]"
-              />
+              <GoogleIcon className="w-[1.6rem] h-[1.6rem]" />
             </button>
             <button
               type="button"
               className="w-[2.6rem] h-[2.6rem] rounded-full bg-kakaoYellow flex justify-center items-center"
             >
               {/* <KakaoIcon className="w-[2rem] h-[2rem]" /> */}
-              <img
-                src={kakaoLogoImg}
-                alt="kakao-logo"
-                className="w-[1.6rem] h-[1.6rem]"
-              />
+              <KakaoIcon className="w-[1.6rem] h-[1.6rem]" />
             </button>
           </div>
         )}

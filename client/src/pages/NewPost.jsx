@@ -8,6 +8,9 @@ import Input from '../components/UI/Input';
 import axios from '../utils/axios';
 import convertToBase64 from '../utils/convertToBase64';
 
+// form 관련 라이브러리 -> react hook 또는 다른 라이브러리
+// render tree
+// usestate 값 유지되는 것?
 function NewPost() {
   const [newPostInfo, setNewPostInfo] = useState({
     title: '',

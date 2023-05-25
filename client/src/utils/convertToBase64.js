@@ -1,3 +1,4 @@
+// reject처리
 const convertToBase64 = file =>
   new Promise(resolve => {
     const reader = new FileReader();

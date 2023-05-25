@@ -11,6 +11,9 @@ import { ReactComponent as ChevronRight } from '../assets/chevron-right.svg';
 import { ReactComponent as ChevronLeft } from '../assets/chevron-left.svg';
 import { ReactComponent as Heart } from '../assets/heart.svg';
 
+import googleLogoImg from '../assets/googleLogoImg.png';
+import kakaoLogoImg from '../assets/kakaoLogoImg.png';
+
 const validateClassName = className => {
   return typeof className === 'string' && className.length > 0 ? { className } : '';
 };
@@ -52,11 +55,11 @@ export function GithubIcon({ className }) {
 }
 
 export function GoogleIcon({ className }) {
-  return <GoogleLogo {...validateClassName(className)} />;
+  return <img src={googleLogoImg} alt="google-logo" {...validateClassName(className)} />;
 }
 
 export function KakaoIcon({ className }) {
-  return <KakaoLogo {...validateClassName(className)} />;
+  return <img src={kakaoLogoImg} alt="kakao-logo" {...validateClassName(className)} />;
 }
 
 export function HeartIcon({ className }) {

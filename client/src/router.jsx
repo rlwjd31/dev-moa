@@ -10,6 +10,16 @@ import AllDevelopment from './pages/AllDevelopments';
 import DetailDevelopment from './pages/DetailDevelopment';
 import NewPost from './pages/NewPost';
 
+// const RouterPath = {
+//   HOME: '/home',
+//   DEVELOPMENTS: '/developments'
+// }
+// human error
+// SSOT 지키면 -> human error decrease
+// enum
+
+// layoutInfo -> grouping으로 해결
+// 추상화를 좋은 구조를 통해 좀이라도 의도가 보이게끔?
 const routerData = [
   {
     path: '/',
