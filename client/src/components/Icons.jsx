@@ -62,4 +62,5 @@ export function KakaoIcon({ className }) {
 export function HeartIcon({ className }) {
   return <Heart {...validateClassName(className)} />;
 }
+
 export default {};

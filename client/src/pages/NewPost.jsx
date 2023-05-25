@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 
-import { redirect, useNavigate } from 'react-router-dom';
 import StarRating from '../components/StarRating';
 import ProfileLine from '../components/UI/ProfileLine';
 import Tag from '../components/UI/Tag';
@@ -21,21 +20,8 @@ function NewPost() {
     thumbnailImage: '', // 임의
     sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5', // 임의
   });
-  const navigate = useNavigate();
   const imageFileTypes = ['JPEG', 'PNG', 'GIF'];
-  // const [newPostInfo, setNewPostInfo] = useState({
-  //   title: '',
-  //   content: '',
-  //   tags: { arr: [], value: '' },
-  //   sorta: '',
-  //   star: 0,
-  //   memberId: 1, // 임의
-  //   sourceMedia: 'velog', // 임의
-  //   thumbnailImage: 'https://images.velog.io/velog.png', // 임의
-  //   sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5', // 임의
-  // });
 
-  // const onStarClickHandler = starValue => setStar(prev => starValue);
   const onStarClickHandler = starValue =>
     setNewPostInfo(prev => ({ ...prev, star: starValue }));
   const onSortaClickHandler = newSortaValue => {
@@ -104,8 +90,6 @@ function NewPost() {
     }
   };
 
-  console.log(newPostInfo);
-
   return (
     <div className="w-full mt-main-top flex flex-col">
       <h2>
@@ -152,15 +136,11 @@ function NewPost() {
               value={newPostInfo.thumbnailImage}
               onChangeHandler={onThumbnailChangeHandler}
             />
-            {/* <p className="mt-4">
-              {!newPostInfo.thumbnailImage && '이미지를 올려주세요😄'}
-            </p> */}
             {newPostInfo.thumbnailImage && (
-              // eslint-disable-next-line jsx-a11y/img-redundant-alt
               <img
                 className="mt-4"
                 src={`${newPostInfo.thumbnailImage}`}
-                alt="uploaded image"
+                alt="uploaded thumbnail"
               />
             )}
           </div>

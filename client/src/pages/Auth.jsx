@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import axios from '../utils/axios';
 
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
+import kakaoLogoImg from '../assets/kakaoLogoImg.png';
+import googleLogoImg from '../assets/googleLogoImg.png';
 
 const fetchLogin = async loginInfo => {
   // const URL = 'https://567f-118-32-224-80.ngrok-free.app/auth/login';
@@ -138,13 +140,22 @@ function Auth() {
               type="button"
               className="w-[2.6rem] h-[2.6rem] rounded-full bg-white flex justify-center items-center"
             >
-              <GoogleIcon className="w-[2rem] h-[2rem]" />
+              <img
+                src={googleLogoImg}
+                alt="google-logo"
+                className="w-[1.6rem] h-[1.6rem]"
+              />
             </button>
             <button
               type="button"
               className="w-[2.6rem] h-[2.6rem] rounded-full bg-kakaoYellow flex justify-center items-center"
             >
-              <KakaoIcon className="w-[2rem] h-[2rem]" />
+              {/* <KakaoIcon className="w-[2rem] h-[2rem]" /> */}
+              <img
+                src={kakaoLogoImg}
+                alt="kakao-logo"
+                className="w-[1.6rem] h-[1.6rem]"
+              />
             </button>
           </div>
         )}
