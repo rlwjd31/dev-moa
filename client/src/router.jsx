@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import Body from './components/layout/Body';
 import Home from './pages/Home';
-import Login from './pages/Login';
+import Auth from './pages/Auth';
 import PageNotFound from './pages/PageNotFound';
 import UserProfile from './pages/UserProfile';
 import UserActivity from './pages/UserActivity';
@@ -50,7 +50,7 @@ const routerData = [
   },
   {
     path: '/user/login',
-    element: <Login />,
+    element: <Auth />,
     layoutInfo: {
       isHeader: true,
       isMainContentWidthScreen: true,
@@ -59,7 +59,7 @@ const routerData = [
   },
   {
     path: '/user/signup',
-    element: <Login />,
+    element: <Auth />,
     layoutInfo: {
       isHeader: true,
       isMainContentWidthScreen: true,

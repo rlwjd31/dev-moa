@@ -21,7 +21,7 @@ const fetchLogin = async loginInfo => {
   return null;
 };
 
-function Login() {
+function Auth() {
   const location = useLocation();
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
@@ -166,4 +166,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Auth;
