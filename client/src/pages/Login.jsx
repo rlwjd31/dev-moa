@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import axios from '../utils/axios';
 
@@ -21,26 +21,27 @@ const fetchLogin = async loginInfo => {
   return null;
 };
 
-const fetchSignUp = async signUpInfo => {
-  const body = signUpInfo;
-  try {
-    const response = await axios.post('/members', body);
-    return response.data;
-  } catch (err) {
-    console.log(`error : ${err.message}`);
-  }
-  return null;
-};
-
 function Login() {
-  const [profileImgNum, setProfileImgNum] = useState(null);
   const location = useLocation();
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
 
   const generateRandomNum = () => {
-    const num = Math.floor(Math.random() * 10);
-    setProfileImgNum(num);
+    return Math.floor(Math.random() * 10);
+  };
+
+  const fetchSignUp = async signUpInfo => {
+    const body = { ...signUpInfo, profileImgNum: generateRandomNum() };
+    console.log('보낸 유저정보', body);
+    try {
+      const response = await axios.post('/members', body);
+      console.log(`응답 헤더 👉🏻`, response.headers);
+      console.log(`응답 바디 👉🏻`, response.data);
+      return response.data;
+    } catch (err) {
+      console.log(`error : ${err.message}`);
+    }
+    return null;
   };
 
   const [loginInfo, setLoginInfo] = useState({
@@ -52,7 +53,6 @@ function Login() {
     userName: '',
     userId: '',
     password: '',
-    profileImgNum: profileImgNum,
   });
 
   const onSubmitHandler = e => {
@@ -84,11 +84,6 @@ function Login() {
 
   const onNameChangeHandler = e =>
     setSignUpInfo(prev => ({ ...prev, userName: e.target.value }));
-
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
-
   return (
     <div className="my-[9.6rem] flex justify-center items-center pt-[180px]">
       <div className="w-[33.5rem] h-[31.5rem] px-[3rem] flex flex-col">
