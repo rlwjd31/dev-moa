@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from '../utils/axios';
 import { getUserInfoAction } from '../store/userSlice';
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
+import { login, signUp } from '../api/auth';
 
 function Auth() {
   const location = useLocation();
@@ -13,23 +14,37 @@ function Auth() {
   const isSignUpPage = location.pathname === '/user/signup';
   const dispatch = useDispatch();
 
-  const generateRandomNum = () => {
-    return Math.floor(Math.random() * 10);
-  };
+  // const signUp = async (authFirebaseAPI, email, password) => {
+  //   try {
+  //     const { user } = await createUserWithEmailAndPassword(
+  //       authFirebaseAPI,
+  //       email,
+  //       password,
+  //     );
+  //     console.log('create user ->', user);
+  //   } catch (err) {
+  //     console.log(
+  //       `firebase 사용자 추가 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`,
+  //     );
+  //   }
 
-  const fetchSignUp = async signUpInfo => {
-    const body = { ...signUpInfo, profileImgNum: generateRandomNum() };
-    console.log('보낸 유저정보', body);
-    try {
-      const response = await axios.post('/members', body);
-      console.log(`응답 헤더 👉🏻`, response.headers);
-      console.log(`응답 바디 👉🏻`, response.data);
-      return response.data;
-    } catch (err) {
-      console.log(`error : ${err.message}`);
-    }
-    return null;
-  };
+  //   return null;
+  // };
+
+  // const login = async (authFirebaseAPI, email, password) => {
+  //   try {
+  //     const { user } = await signInWithEmailAndPassword(authFirebaseAPI, email, password);
+  //     console.log('login userInfo ->', user);
+  //   } catch (err) {
+  //     console.log(
+  //       `firebase 로그인 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`,
+  //     );
+  //   }
+  // };
+
+  // const generateRandomNum = () => {
+  //   return Math.floor(Math.random() * 10);
+  // };
 
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -38,21 +53,20 @@ function Auth() {
 
   const [signUpInfo, setSignUpInfo] = useState({
     userName: '',
-    userId: '',
+    email: '',
     password: '',
   });
 
   const onSubmitHandler = async e => {
     e.preventDefault();
+    // ! with Firebase
     if (isLoginPage) {
       navigator('/');
       dispatch(getUserInfoAction(loginInfo));
+      await login(loginInfo.email, loginInfo.password);
     } else if (isSignUpPage) {
-      generateRandomNum();
-      const signUpResponse = fetchSignUp(signUpInfo);
       navigator('/user/login');
-
-      console.log('signup response 👉🏻', signUpResponse);
+      await signUp(signUpInfo.email, signUpInfo.password);
     }
   };
 
@@ -74,6 +88,8 @@ function Auth() {
 
   const onNameChangeHandler = e =>
     setSignUpInfo(prev => ({ ...prev, userName: e.target.value }));
+
+  console.log(signUpInfo);
 
   return (
     <div className="my-[9.6rem] flex justify-center items-center pt-[180px]">

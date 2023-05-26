@@ -1,29 +1,34 @@
-import axios from '../utils/axios';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 
-const loginEndpoint = 'auth/login'; // post
-const signupEndpoint = 'members'; // post
+const authFirebaseAPI = getAuth();
 
-export const getUserInfo = async (userInfo, rejectWithValue) => {
-  console.log('보낸 이메일과 비밀번호', userInfo);
-  console.log(`보낸 서버 주소 👉🏻 ${axios.defaults.baseURL}/auth/login`);
+export const signUp = async (email, password) => {
   try {
-    // const {data: userInfo} = await.post()
-    const response = await axios.post(loginEndpoint, userInfo);
-    console.log(`응답 헤더 👉🏻`, response.headers);
-    console.log(`응답 바디 👉🏻`, response.data);
-    const { accessToken, refreshToken } = response.data;
-    if (accessToken && refreshToken) {
-      localStorage.setItem(
-        'token',
-        JSON.stringify({
-          accessToken,
-          refreshToken,
-        }),
-      );
-    }
-    return { userInfo: response.data };
+    const { user } = await createUserWithEmailAndPassword(
+      authFirebaseAPI,
+      email,
+      password,
+    );
+    console.log('create user ->', user);
   } catch (err) {
-    return rejectWithValue({ error: err.message }); // rejectWithValue적용
+    console.log(
+      `firebase 사용자 추가 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`,
+    );
+  }
+
+  return null;
+};
+
+export const login = async (email, password) => {
+  try {
+    const { user } = await signInWithEmailAndPassword(authFirebaseAPI, email, password);
+    console.log('login userInfo ->', user);
+  } catch (err) {
+    console.log(`firebase 로그인 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`);
   }
 };
 
