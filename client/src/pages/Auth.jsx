@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import axios from '../utils/axios';
-import { getUserInfoAction } from '../store/userSlice';
+// import { getUserInfoAction } from '../store/userSlice';
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
 import { login, signUp } from '../api/auth';
 
@@ -13,38 +13,6 @@ function Auth() {
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
   const dispatch = useDispatch();
-
-  // const signUp = async (authFirebaseAPI, email, password) => {
-  //   try {
-  //     const { user } = await createUserWithEmailAndPassword(
-  //       authFirebaseAPI,
-  //       email,
-  //       password,
-  //     );
-  //     console.log('create user ->', user);
-  //   } catch (err) {
-  //     console.log(
-  //       `firebase 사용자 추가 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`,
-  //     );
-  //   }
-
-  //   return null;
-  // };
-
-  // const login = async (authFirebaseAPI, email, password) => {
-  //   try {
-  //     const { user } = await signInWithEmailAndPassword(authFirebaseAPI, email, password);
-  //     console.log('login userInfo ->', user);
-  //   } catch (err) {
-  //     console.log(
-  //       `firebase 로그인 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`,
-  //     );
-  //   }
-  // };
-
-  // const generateRandomNum = () => {
-  //   return Math.floor(Math.random() * 10);
-  // };
 
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -61,12 +29,12 @@ function Auth() {
     e.preventDefault();
     // ! with Firebase
     if (isLoginPage) {
-      navigator('/');
-      dispatch(getUserInfoAction(loginInfo));
+      // dispatch(getUserInfoAction(loginInfo));
       await login(loginInfo.email, loginInfo.password);
+      navigator('/');
     } else if (isSignUpPage) {
-      navigator('/user/login');
       await signUp(signUpInfo.email, signUpInfo.password);
+      navigator('/');
     }
   };
 

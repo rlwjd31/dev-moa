@@ -1,17 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import firebaseApp from '../../utils/firebaseApp';
 import axios from '../../utils/axios';
 
 import Footer from './Footer';
 import Header from './Header';
+import { handleUserIsLogin } from '../../api/auth';
 
 function Body({ children, layoutInfo }) {
-  const { isLogin } = useSelector(state => state.user);
+  // const { isLogin } = useSelector(state => state.user);
   const { isMainContentWidthScreen } = layoutInfo;
+  const [isLogin, setIsLogin] = useState(false);
 
-  console.log('firebase 🔥🔥🔥🔥🔥');
-  console.log(firebaseApp);
+  useEffect(() => {
+    handleUserIsLogin(setIsLogin);
+  }, [isLogin]);
+
+  console.log('isLogin value in Body 🚀', isLogin);
 
   return (
     <div className="w-screen flex flex-col items-center bg-gray1 font-noto-kr">
