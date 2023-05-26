@@ -4,10 +4,8 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import SyncLoader from 'react-spinners/SyncLoader';
-
 import Swal from 'sweetalert2';
-import axios from '../utils/axios';
-// import { getUserInfoAction } from '../store/userSlice';
+
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
 import { login, signUp } from '../api/auth';
 
@@ -16,9 +14,7 @@ function Auth() {
   const navigator = useNavigate();
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
-  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
-  const [isAlerting, setIsAlerting] = useState(false);
 
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -87,17 +83,12 @@ function Auth() {
   const onNameChangeHandler = e =>
     setSignUpInfo(prev => ({ ...prev, userName: e.target.value }));
 
-  console.log(signUpInfo);
-
-  console.log('isLoading:', isLoading);
   return (
     <>
       {isLoading ? (
         <div className="flex justify-center items-center h-[80vh] w-full bg-gray1">
           <SyncLoader color="#465955" />
         </div>
-      ) : isAlerting ? (
-        <div className="flex justify-center items-center h-[80vh] w-full bg-gray1" />
       ) : (
         <div className="my-[9.6rem] flex justify-center items-center pt-[180px]">
           <div className="w-[33.5rem] h-[31.5rem] px-[3rem] flex flex-col">
