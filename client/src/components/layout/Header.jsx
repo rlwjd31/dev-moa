@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 import { UserIcon, SearchIcon } from '../Icons';
 
-function Header() {
+function Header({ isLogin }) {
   const inputRef = useRef(null);
   const applyNavLinkActivedStyle = ({ isActive }) =>
     `p-[10px] pb-[15px] tracking-[.15rem] ${isActive && 'text-activeBlue'}`;
@@ -15,9 +15,12 @@ function Header() {
   return (
     <div className="z-10 fixed top-0 flex justify-center h-36 w-screen pt-6 bg-gray1 font-play text-[0.75rem] border-solid border-b-[1px] border-gray7/60">
       <div className="flex flex-col w-full max-w-limit">
-        <Link to="/user/login" className="flex justify-end pr-[10px]">
+        <Link
+          to={isLogin ? '/user/profile' : '/user/login'}
+          className="flex justify-end pr-[10px]"
+        >
           <UserIcon className="h-[12px] w-[12px] mr-2" />
-          <span className="tracking-[.15rem]">LOGIN</span>
+          <span className="tracking-[.15rem]">{isLogin ? 'MY PAGE' : 'LOGIN'}</span>
         </Link>
         <div className="flex items-end">
           <Link to="/">

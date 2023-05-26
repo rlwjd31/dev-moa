@@ -11,7 +11,16 @@ export const getUserInfo = async (userInfo, rejectWithValue) => {
     const response = await axios.post(loginEndpoint, userInfo);
     console.log(`응답 헤더 👉🏻`, response.headers);
     console.log(`응답 바디 👉🏻`, response.data);
-
+    const { accessToken, refreshToken } = response.data;
+    if (accessToken && refreshToken) {
+      localStorage.setItem(
+        'token',
+        JSON.stringify({
+          accessToken,
+          refreshToken,
+        }),
+      );
+    }
     return { userInfo: response.data };
   } catch (err) {
     return rejectWithValue({ error: err.message }); // rejectWithValue적용

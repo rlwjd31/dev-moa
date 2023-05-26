@@ -10,6 +10,7 @@ const initialState = {
   accessToken: '',
   refreshToken: '',
   profileImgNum: '',
+  isLogin: false,
 };
 
 export const getUserInfoAction = createAsyncThunk(
@@ -26,7 +27,7 @@ const userSlice = createSlice({
     });
     builder.addCase(getUserInfoAction.fulfilled, (state, action) => {
       // state = action.payload.userInfo; => 이렇게 해 주면 state가 update되지 않는다... ㅜㅜ => search!!
-      return { ...action.payload.userInfo, status: 'success' };
+      return { ...action.payload.userInfo, status: 'success', isLogin: true };
     });
     builder.addCase(getUserInfoAction.rejected, (state, action) => {
       state.status = 'failed';

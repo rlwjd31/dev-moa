@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import fs from 'fs';
 import Aside from '../components/layout/Aside';
 import Card from '../components/UI/Card';
 import Item from '../components/Item';
@@ -40,10 +41,13 @@ function AllDevelopments() {
 
   useEffect(() => {
     dispatch(fetchAllDevelopmentsAction());
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log(allDevelopments);
+  const allDevelopmentsJSON = JSON.stringify(allDevelopments.data);
+  console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥', allDevelopmentsJSON);
 
   const filteredDevelopments = allDevelopments.data
     .filter(developmentInfo =>

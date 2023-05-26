@@ -1,30 +1,14 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import axios from '../utils/axios';
-import { getUserInfoAction } from '../store/user';
+import { getUserInfoAction } from '../store/userSlice';
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
-
-// const fetchLogin = async loginInfo => {
-//   // const URL = 'https://567f-118-32-224-80.ngrok-free.app/auth/login';
-//   const body = loginInfo;
-//   console.log('보낸 이메일과 비밀번호', body);
-//   console.log(`보낸 서버 주소 👉🏻 ${axios.defaults.baseURL}/auth/login`);
-//   try {
-//     const response = await axios.post('/auth/login', body);
-//     console.log(`응답 헤더 👉🏻`, response.headers);
-//     console.log(`응답 바디 👉🏻`, response.data);
-//     return response.data;
-//   } catch (err) {
-//     console.log(`error: ${err.message}`);
-//   }
-
-//   return null;
-// };
 
 function Auth() {
   const location = useLocation();
+  const navigator = useNavigate();
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
   const dispatch = useDispatch();
@@ -61,10 +45,13 @@ function Auth() {
   const onSubmitHandler = async e => {
     e.preventDefault();
     if (isLoginPage) {
+      navigator('/');
       dispatch(getUserInfoAction(loginInfo));
     } else if (isSignUpPage) {
       generateRandomNum();
       const signUpResponse = fetchSignUp(signUpInfo);
+      navigator('/user/login');
+
       console.log('signup response 👉🏻', signUpResponse);
     }
   };

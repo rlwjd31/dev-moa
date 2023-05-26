@@ -1,31 +1,18 @@
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import axios from '../../utils/axios';
 
 import Footer from './Footer';
 import Header from './Header';
 
 function Body({ children, layoutInfo }) {
+  const { isLogin } = useSelector(state => state.user);
   const { isMainContentWidthScreen } = layoutInfo;
 
-  // useEffect(() => {
-  //   const fetchUserInfo = async () => {
-  //     try {
-  //       const response = await axios.get('userinfo');
-
-  //       if (response.status >= 200 && response.status < 300) {
-  //         console.log(`from server /userinfo 👉🏻`, response.data);
-  //       }
-  //     } catch (err) {
-  //       console.log(err.message);
-  //     }
-  //   };
-
-  //   fetchUserInfo();
-  // }, []);
-
+  console.log(`isLogin: ${isLogin}`);
   return (
     <div className="w-screen flex flex-col items-center bg-gray1 font-noto-kr">
-      <Header />
+      <Header isLogin={isLogin} />
       {isMainContentWidthScreen && children}
 
       {!isMainContentWidthScreen && (
