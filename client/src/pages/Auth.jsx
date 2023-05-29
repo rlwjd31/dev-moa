@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
 import { login, signUp } from '../api/auth';
 import { getUserInfoAction } from '../store/userSlice';
+import LoadingPage from './LoadingPage';
 
 function Auth() {
   const location = useLocation();
@@ -90,9 +91,7 @@ function Auth() {
   return (
     <>
       {isLoading ? (
-        <div className="flex justify-center items-center h-[80vh] w-full bg-gray1">
-          <SyncLoader color="#465955" />
-        </div>
+        <LoadingPage />
       ) : (
         <div className="my-[9.6rem] flex justify-center items-center pt-[180px]">
           <div className="w-[33.5rem] h-[31.5rem] px-[3rem] flex flex-col">
