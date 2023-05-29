@@ -39,6 +39,7 @@ function NewPost() {
     // ! Error log: 아래와 같이 state tookit에 있는 것에 초기값으로 설정하면 빈 값이 들어오는데
     // ! 이는 코드의 순서와 같이 순차적으로 state를 가져오지 않는 것 같다.
     author: '',
+    recommends: 0,
   });
 
   const onStarClickHandler = starValue =>

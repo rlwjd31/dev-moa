@@ -27,6 +27,7 @@ const initialState = {
       createdAt: '',
       modifiedAt: '',
       author: '',
+      recommends: 0,
     },
   ],
 };
