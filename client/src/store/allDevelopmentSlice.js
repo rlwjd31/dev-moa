@@ -9,7 +9,10 @@ export const addDevelopmentPostAction = createAsyncThunk(
 );
 
 const initialState = {
-  status: 'loading',
+  // status: 'loading'으로 초기값 처리하면 게시글을 추가하려고 페이지를 들어가면
+  // 처음부터 'loading'이라 LoadingPage가 rendering되는 버그가 존재하므로
+  // 초기값을 변경하여 해결
+  status: 'initialStatus',
   data: [
     {
       id: '',

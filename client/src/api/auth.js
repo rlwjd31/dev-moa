@@ -81,7 +81,6 @@ export const getUserInfo = async userId => {
       };
 
       // userSnap.data() will be exist in this case
-      console.log('userInfo', userInfo);
       return { userInfo }; // will be store in payload as object by redux-toolkit
     }
   } catch (err) {
