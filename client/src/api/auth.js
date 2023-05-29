@@ -54,21 +54,24 @@ export const login = async (email, password) => {
   return null;
 };
 
-export const handleUserIsLogin = callback => {
+export const handleUserIsLogin = (setIsLoginCallback, getUserInfoCallback) => {
   onAuthStateChanged(authFirebaseAPI, user => {
     if (user) {
-      callback(true);
-      console.log('still login status!!🔥🔥🔥');
-      return;
+      setIsLoginCallback(true);
+      getUserInfoCallback(user.uid);
+
+      return null;
     }
 
-    console.log('no login now...🥲🥲🥲');
-    callback(false);
+    setIsLoginCallback(false);
+    return null;
   });
 };
 
-export const logout = () => {
+export const logout = userInfoResetCallback => {
   signOut(authFirebaseAPI);
+  // component가 아니기 때문에 callback으로 받아와서 처리함
+  userInfoResetCallback();
 };
 
 export const getUserInfo = async userId => {

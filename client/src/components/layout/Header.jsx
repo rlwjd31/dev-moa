@@ -1,11 +1,14 @@
 import { NavLink, Link } from 'react-router-dom';
 import { useRef } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { UserIcon, SearchIcon } from '../Icons';
 import { logout } from '../../api/auth';
+import { reset } from '../../store/userSlice';
 
 function Header({ isLogin }) {
   const inputRef = useRef(null);
+  const dispatch = useDispatch();
   const applyNavLinkActivedStyle = ({ isActive }) =>
     `p-[10px] pb-[15px] tracking-[.15rem] ${isActive && 'text-activeBlue'}`;
 
@@ -13,7 +16,7 @@ function Header({ isLogin }) {
     inputRef.current.focus();
   };
 
-  const onLogoutButtonClickHandler = () => logout();
+  const onLogoutButtonClickHandler = () => logout(() => dispatch(reset()));
 
   return (
     <div className="z-10 fixed top-0 flex justify-center h-36 w-screen pt-6 bg-gray1 font-play text-[0.75rem] border-solid border-b-[1px] border-gray7/60">
