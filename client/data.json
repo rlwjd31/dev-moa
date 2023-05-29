@@ -1,7 +1,6 @@
 {
   "allDevelopments": [
     {
-      "status": "success",
       "postId": 57,
       "title": "제대로 파는 Git & GitHub",
       "content": "git에 대해 자세하게 알고 싶어서 공유했습니다.",
@@ -19,7 +18,6 @@
       "modifiedAt": "2023-05-25T12:05:32"
     },
     {
-      "status": "success",
       "postId": 51,
       "title": "타입스크립트 객체배우기",
       "content": "타입스크립트로 객체 다루기!!!",
@@ -37,7 +35,6 @@
       "modifiedAt": "2023-05-25T06:45:12"
     },
     {
-      "status": "success",
       "postId": 50,
       "title": "handle object with typescript",
       "content": "typescript로 쉽게 객체를 알려줍니다!!",
@@ -55,7 +52,6 @@
       "modifiedAt": "2023-05-25T06:31:53"
     },
     {
-      "status": "success",
       "postId": 49,
       "title": "typescript object",
       "content": "handle object with typescript",
@@ -73,7 +69,6 @@
       "modifiedAt": "2023-05-25T06:16:55"
     },
     {
-      "status": "success",
       "postId": 47,
       "title": "login",
       "content": "로그인 로직",
@@ -88,7 +83,6 @@
       "tags": [],
       "comments": [
         {
-          "status": "success",
           "postId": 47,
           "commentId": 113,
           "comment": "so",
@@ -98,7 +92,6 @@
           "modifiedAt": "2023-05-24T17:37:06"
         },
         {
-          "status": "success",
           "postId": 47,
           "commentId": 114,
           "comment": "wow!!!!",
@@ -112,7 +105,6 @@
       "modifiedAt": "2023-05-24T17:37:17"
     },
     {
-      "status": "success",
       "postId": 46,
       "title": "프론트엔드 개발자 vs 백엔드 개발자",
       "content": "무엇이 다른지 알 수 있었다",
@@ -127,7 +119,6 @@
       "tags": ["개발자", "Developer"],
       "comments": [
         {
-          "status": "success",
           "postId": 46,
           "commentId": 46,
           "comment": "이거 저도 봤는데 괜찮았어요",
@@ -137,7 +128,6 @@
           "modifiedAt": "2023-05-23T09:37:50"
         },
         {
-          "status": "success",
           "postId": 46,
           "commentId": 47,
           "comment": "많은 도움이 되었습니다.",
@@ -147,7 +137,6 @@
           "modifiedAt": "2023-05-23T09:38:31"
         },
         {
-          "status": "success",
           "postId": 46,
           "commentId": 48,
           "comment": "오 짧고 핵심만 딱딱",
@@ -157,7 +146,6 @@
           "modifiedAt": "2023-05-23T09:39:17"
         },
         {
-          "status": "success",
           "postId": 46,
           "commentId": 59,
           "comment": "asdfasdfasdf",
@@ -171,7 +159,6 @@
       "modifiedAt": "2023-05-25T04:20:32"
     },
     {
-      "status": "success",
       "postId": 45,
       "title": "챗GPT 어렵다구요..? 챗GPT (ChatGPT) 사용법 4분만에 배우기",
       "content": "chatGPT에 대해",
@@ -186,7 +173,6 @@
       "tags": ["chatGPT", "챗GPT"],
       "comments": [
         {
-          "status": "success",
           "postId": 45,
           "commentId": 111,
           "comment": "gpt 쉽네요!",
@@ -196,7 +182,6 @@
           "modifiedAt": "2023-05-24T17:36:23"
         },
         {
-          "status": "success",
           "postId": 45,
           "commentId": 112,
           "comment": "ai신기해요",
@@ -210,7 +195,6 @@
       "modifiedAt": "2023-05-24T17:36:37"
     },
     {
-      "status": "success",
       "postId": 38,
       "title": "DTO의 사용범위는 어디까지? 또, DTO 변환은 어디서?",
       "content": "dto 와 entity 에 대해 알 수 있었다.",
@@ -225,7 +209,6 @@
       "tags": ["dto", "entity"],
       "comments": [
         {
-          "status": "success",
           "postId": 38,
           "commentId": 107,
           "comment": "wow",
@@ -235,7 +218,6 @@
           "modifiedAt": "2023-05-24T17:34:12"
         },
         {
-          "status": "success",
           "postId": 38,
           "commentId": 108,
           "comment": "so",
@@ -245,7 +227,6 @@
           "modifiedAt": "2023-05-24T17:34:28"
         },
         {
-          "status": "success",
           "postId": 38,
           "commentId": 109,
           "comment": "great",
@@ -255,7 +236,6 @@
           "modifiedAt": "2023-05-24T17:34:59"
         },
         {
-          "status": "success",
           "postId": 38,
           "commentId": 110,
           "comment": "great",
@@ -269,7 +249,6 @@
       "modifiedAt": "2023-05-24T17:36:03"
     },
     {
-      "status": "success",
       "postId": 34,
       "title": "2023년 웹 개발 트렌드 13가지",
       "content": "trend 13",
@@ -284,7 +263,6 @@
       "tags": ["web"],
       "comments": [
         {
-          "status": "success",
           "postId": 34,
           "commentId": 104,
           "comment": "익숙하네요",
@@ -294,7 +272,6 @@
           "modifiedAt": "2023-05-24T17:33:06"
         },
         {
-          "status": "success",
           "postId": 34,
           "commentId": 105,
           "comment": "좋은 정보 감사합니다~",
@@ -304,7 +281,6 @@
           "modifiedAt": "2023-05-24T17:33:23"
         },
         {
-          "status": "success",
           "postId": 34,
           "commentId": 106,
           "comment": "um...",
@@ -318,7 +294,6 @@
       "modifiedAt": "2023-05-24T17:33:42"
     },
     {
-      "status": "success",
       "postId": 33,
       "title": "Mojo: 차세대 프로그래밍 언어",
       "content": "Mojo",
@@ -333,7 +308,6 @@
       "tags": ["mojo"],
       "comments": [
         {
-          "status": "success",
           "postId": 33,
           "commentId": 102,
           "comment": "트랜드가 빠르네요",
@@ -343,7 +317,6 @@
           "modifiedAt": "2023-05-24T17:32:16"
         },
         {
-          "status": "success",
           "postId": 33,
           "commentId": 103,
           "comment": "쉬워요",
@@ -357,7 +330,6 @@
       "modifiedAt": "2023-05-24T17:32:36"
     },
     {
-      "status": "success",
       "postId": 32,
       "title": "함수형 프로그래밍과 JavaScript ES6+",
       "content": "JavaScript",
@@ -372,7 +344,6 @@
       "tags": ["js"],
       "comments": [
         {
-          "status": "success",
           "postId": 32,
           "commentId": 49,
           "comment": "글세요",
@@ -386,7 +357,6 @@
       "modifiedAt": "2023-05-23T13:41:36"
     },
     {
-      "status": "success",
       "postId": 31,
       "title": "【한글자막】 React 완벽 가이드 with Redux, Next.js, TypeScript",
       "content": "modern javascript",
@@ -401,7 +371,6 @@
       "tags": ["react", "video"],
       "comments": [
         {
-          "status": "success",
           "postId": 31,
           "commentId": 99,
           "comment": "한글자막 좋네요",
@@ -411,7 +380,6 @@
           "modifiedAt": "2023-05-24T17:31:00"
         },
         {
-          "status": "success",
           "postId": 31,
           "commentId": 100,
           "comment": "우와!!!",
@@ -421,7 +389,6 @@
           "modifiedAt": "2023-05-24T17:31:22"
         },
         {
-          "status": "success",
           "postId": 31,
           "commentId": 101,
           "comment": "good",
@@ -435,7 +402,6 @@
       "modifiedAt": "2023-05-24T17:31:38"
     },
     {
-      "status": "success",
       "postId": 30,
       "title": "프론트엔드 필수 브라우저 101",
       "content": "야식",
@@ -450,7 +416,6 @@
       "tags": ["FB"],
       "comments": [
         {
-          "status": "success",
           "postId": 30,
           "commentId": 8,
           "comment": "댓글",
@@ -464,7 +429,6 @@
       "modifiedAt": "2023-05-19T15:12:46"
     },
     {
-      "status": "success",
       "postId": 29,
       "title": "모던 자바스크립트 딥다이브 스터디",
       "content": "modern javascript",
@@ -479,7 +443,6 @@
       "tags": ["javascript", "deepDive"],
       "comments": [
         {
-          "status": "success",
           "postId": 29,
           "commentId": 98,
           "comment": "좋아요",
@@ -493,7 +456,6 @@
       "modifiedAt": "2023-05-25T06:34:48"
     },
     {
-      "status": "success",
       "postId": 28,
       "title": "기업들은 왜 코틀린을 선택하였을까?",
       "content": "코틀린",
@@ -508,7 +470,6 @@
       "tags": ["kotlin"],
       "comments": [
         {
-          "status": "success",
           "postId": 28,
           "commentId": 96,
           "comment": "코틀린 많이쓰나요?",
@@ -518,7 +479,6 @@
           "modifiedAt": "2023-05-24T17:29:33"
         },
         {
-          "status": "success",
           "postId": 28,
           "commentId": 97,
           "comment": "유익해요",
@@ -532,7 +492,6 @@
       "modifiedAt": "2023-05-24T17:29:57"
     },
     {
-      "status": "success",
       "postId": 27,
       "title": "한시간만에 Node.js 백엔드 기초 끝내기 (ft. API 구축)",
       "content": "보름달",
@@ -547,7 +506,6 @@
       "tags": ["node", "js"],
       "comments": [
         {
-          "status": "success",
           "postId": 27,
           "commentId": 94,
           "comment": "간단해요",
@@ -557,7 +515,6 @@
           "modifiedAt": "2023-05-24T17:28:59"
         },
         {
-          "status": "success",
           "postId": 27,
           "commentId": 95,
           "comment": "쉬워요",
@@ -571,7 +528,6 @@
       "modifiedAt": "2023-05-24T17:29:12"
     },
     {
-      "status": "success",
       "postId": 26,
       "title": "RESTful API 이란",
       "content": "restFul",
@@ -586,7 +542,6 @@
       "tags": ["API"],
       "comments": [
         {
-          "status": "success",
           "postId": 26,
           "commentId": 91,
           "comment": "wow",
@@ -596,7 +551,6 @@
           "modifiedAt": "2023-05-24T17:28:10"
         },
         {
-          "status": "success",
           "postId": 26,
           "commentId": 92,
           "comment": "good",
@@ -606,7 +560,6 @@
           "modifiedAt": "2023-05-24T17:28:19"
         },
         {
-          "status": "success",
           "postId": 26,
           "commentId": 93,
           "comment": "soso",
@@ -620,7 +573,6 @@
       "modifiedAt": "2023-05-24T17:28:33"
     },
     {
-      "status": "success",
       "postId": 25,
       "title": "State, 슬기롭게 관리하기 (2)",
       "content": "State",
@@ -635,7 +587,6 @@
       "tags": ["State"],
       "comments": [
         {
-          "status": "success",
           "postId": 25,
           "commentId": 88,
           "comment": "좋아요",
@@ -645,7 +596,6 @@
           "modifiedAt": "2023-05-24T17:27:18"
         },
         {
-          "status": "success",
           "postId": 25,
           "commentId": 89,
           "comment": "good",
@@ -655,7 +605,6 @@
           "modifiedAt": "2023-05-24T17:27:35"
         },
         {
-          "status": "success",
           "postId": 25,
           "commentId": 90,
           "comment": "wow",
@@ -669,7 +618,6 @@
       "modifiedAt": "2023-05-24T17:27:49"
     },
     {
-      "status": "success",
       "postId": 24,
       "title": "자바스트립트 기초 강의 - [프론트엔드 개발자 첫걸음] - 3시간 완성",
       "content": "javascript",
@@ -684,7 +632,6 @@
       "tags": ["javascript", "youtube"],
       "comments": [
         {
-          "status": "success",
           "postId": 24,
           "commentId": 9,
           "comment": "우와",
@@ -698,7 +645,6 @@
       "modifiedAt": "2023-05-19T15:08:19"
     },
     {
-      "status": "success",
       "postId": 23,
       "title": "JWT(Json Web Token) 인증방식",
       "content": "Jwt velog",
@@ -713,7 +659,6 @@
       "tags": ["JWT, Spring"],
       "comments": [
         {
-          "status": "success",
           "postId": 23,
           "commentId": 86,
           "comment": "토큰에대해 배웠어요",
@@ -723,7 +668,6 @@
           "modifiedAt": "2023-05-24T17:26:09"
         },
         {
-          "status": "success",
           "postId": 23,
           "commentId": 87,
           "comment": "좋아요",
@@ -737,7 +681,6 @@
       "modifiedAt": "2023-05-24T17:26:31"
     },
     {
-      "status": "success",
       "postId": 22,
       "title": "[Recoil] 리코일, 10분이면 쓸 수있는데 왜 안쓰죠?",
       "content": "더미",
@@ -752,7 +695,6 @@
       "tags": ["recoil"],
       "comments": [
         {
-          "status": "success",
           "postId": 22,
           "commentId": 84,
           "comment": "신기하네요~",
@@ -762,7 +704,6 @@
           "modifiedAt": "2023-05-24T17:25:18"
         },
         {
-          "status": "success",
           "postId": 22,
           "commentId": 85,
           "comment": "좋은정보에요",
@@ -776,7 +717,6 @@
       "modifiedAt": "2023-05-24T17:25:18"
     },
     {
-      "status": "success",
       "postId": 21,
       "title": "브라우저는 어떻게 동작하는가?",
       "content": "naver",
@@ -791,7 +731,6 @@
       "tags": ["naver, java"],
       "comments": [
         {
-          "status": "success",
           "postId": 21,
           "commentId": 82,
           "comment": "신기해요!",
@@ -801,7 +740,6 @@
           "modifiedAt": "2023-05-24T17:24:31"
         },
         {
-          "status": "success",
           "postId": 21,
           "commentId": 83,
           "comment": "유익해요",
@@ -815,7 +753,6 @@
       "modifiedAt": "2023-05-24T17:24:48"
     },
     {
-      "status": "success",
       "postId": 20,
       "title": "[Spring JPA] JPA 란?",
       "content": "JPA",
@@ -830,7 +767,6 @@
       "tags": ["JPA", "Spring"],
       "comments": [
         {
-          "status": "success",
           "postId": 20,
           "commentId": 79,
           "comment": "db",
@@ -840,7 +776,6 @@
           "modifiedAt": "2023-05-24T17:23:34"
         },
         {
-          "status": "success",
           "postId": 20,
           "commentId": 80,
           "comment": "hard",
@@ -850,7 +785,6 @@
           "modifiedAt": "2023-05-24T17:23:58"
         },
         {
-          "status": "success",
           "postId": 20,
           "commentId": 81,
           "comment": "좋아요",
@@ -864,7 +798,6 @@
       "modifiedAt": "2023-05-24T17:24:10"
     },
     {
-      "status": "success",
       "postId": 19,
       "title": "[번역] 현실 세계 프런트엔드에서 사용되는 자바스크립트 자료구조: 리액트 코드 예시와 함께",
       "content": "velogimage",
@@ -879,7 +812,6 @@
       "tags": ["github"],
       "comments": [
         {
-          "status": "success",
           "postId": 19,
           "commentId": 76,
           "comment": "프런트?",
@@ -889,7 +821,6 @@
           "modifiedAt": "2023-05-24T17:22:25"
         },
         {
-          "status": "success",
           "postId": 19,
           "commentId": 77,
           "comment": "프론트?",
@@ -899,7 +830,6 @@
           "modifiedAt": "2023-05-24T17:22:37"
         },
         {
-          "status": "success",
           "postId": 19,
           "commentId": 78,
           "comment": "리액트 어려워요ㅠㅠ",
@@ -913,7 +843,6 @@
       "modifiedAt": "2023-05-24T17:23:05"
     },
     {
-      "status": "success",
       "postId": 18,
       "title": "리액트 초보자 입문강의 3탄 | 리액트 state 진짜 쉽게 설명해줌 | 이거 모르면 프론트엔드 개발자는 힘들지...",
       "content": "내용물",
@@ -928,7 +857,6 @@
       "tags": ["js", "reate"],
       "comments": [
         {
-          "status": "success",
           "postId": 18,
           "commentId": 72,
           "comment": "node.js",
@@ -938,7 +866,6 @@
           "modifiedAt": "2023-05-24T17:20:31"
         },
         {
-          "status": "success",
           "postId": 18,
           "commentId": 73,
           "comment": "리액트 어렵다",
@@ -948,7 +875,6 @@
           "modifiedAt": "2023-05-24T17:20:57"
         },
         {
-          "status": "success",
           "postId": 18,
           "commentId": 74,
           "comment": "good",
@@ -958,7 +884,6 @@
           "modifiedAt": "2023-05-24T17:21:13"
         },
         {
-          "status": "success",
           "postId": 18,
           "commentId": 75,
           "comment": "good",
@@ -972,7 +897,6 @@
       "modifiedAt": "2023-05-24T17:21:57"
     },
     {
-      "status": "success",
       "postId": 17,
       "title": "자바스크립트 async와 await",
       "content": "github",
@@ -987,7 +911,6 @@
       "tags": ["github"],
       "comments": [
         {
-          "status": "success",
           "postId": 17,
           "commentId": 70,
           "comment": "github?",
@@ -997,7 +920,6 @@
           "modifiedAt": "2023-05-24T17:19:53"
         },
         {
-          "status": "success",
           "postId": 17,
           "commentId": 71,
           "comment": "js",
@@ -1011,7 +933,6 @@
       "modifiedAt": "2023-05-24T17:20:06"
     },
     {
-      "status": "success",
       "postId": 16,
       "title": "CORS는 왜 이렇게 우리를 힘들게 하는걸까?",
       "content": "so",
@@ -1026,7 +947,6 @@
       "tags": ["github"],
       "comments": [
         {
-          "status": "success",
           "postId": 16,
           "commentId": 67,
           "comment": "cors",
@@ -1036,7 +956,6 @@
           "modifiedAt": "2023-05-24T17:18:26"
         },
         {
-          "status": "success",
           "postId": 16,
           "commentId": 68,
           "comment": "https",
@@ -1046,7 +965,6 @@
           "modifiedAt": "2023-05-24T17:18:40"
         },
         {
-          "status": "success",
           "postId": 16,
           "commentId": 69,
           "comment": "so hard",
@@ -1060,7 +978,6 @@
       "modifiedAt": "2023-05-24T17:18:54"
     },
     {
-      "status": "success",
       "postId": 15,
       "title": "5분만에 제대로 설계하는 ⭐️ REST AP",
       "content": "so",
@@ -1075,7 +992,6 @@
       "tags": ["java", "kotlin"],
       "comments": [
         {
-          "status": "success",
           "postId": 15,
           "commentId": 64,
           "comment": "API 어렵",
@@ -1085,7 +1001,6 @@
           "modifiedAt": "2023-05-24T17:17:02"
         },
         {
-          "status": "success",
           "postId": 15,
           "commentId": 65,
           "comment": "맞어맞어 어려워요ㅠ",
@@ -1095,7 +1010,6 @@
           "modifiedAt": "2023-05-24T17:17:17"
         },
         {
-          "status": "success",
           "postId": 15,
           "commentId": 66,
           "comment": "rest",
@@ -1109,7 +1023,6 @@
       "modifiedAt": "2023-05-24T17:17:36"
     },
     {
-      "status": "success",
       "postId": 14,
       "title": "[React] 5. 컴포넌트 디자인하기",
       "content": "so",
@@ -1124,7 +1037,6 @@
       "tags": ["java", "router"],
       "comments": [
         {
-          "status": "success",
           "postId": 14,
           "commentId": 7,
           "comment": "테스트 중",
@@ -1138,7 +1050,6 @@
       "modifiedAt": "2023-05-19T15:02:00"
     },
     {
-      "status": "success",
       "postId": 13,
       "title": "코틀린, 장단점과 특징",
       "content": "코틀린에 대하여 알아봅시다",
@@ -1153,7 +1064,6 @@
       "tags": ["java", "kotlin"],
       "comments": [
         {
-          "status": "success",
           "postId": 13,
           "commentId": 50,
           "comment": "흐음?",
@@ -1163,7 +1073,6 @@
           "modifiedAt": "2023-05-23T13:42:50"
         },
         {
-          "status": "success",
           "postId": 13,
           "commentId": 51,
           "comment": "좋아요",
@@ -1173,7 +1082,6 @@
           "modifiedAt": "2023-05-23T13:44:54"
         },
         {
-          "status": "success",
           "postId": 13,
           "commentId": 52,
           "comment": "좋아요",
@@ -1183,7 +1091,6 @@
           "modifiedAt": "2023-05-23T13:45:33"
         },
         {
-          "status": "success",
           "postId": 13,
           "commentId": 53,
           "comment": "코틀린",
@@ -1197,7 +1104,6 @@
       "modifiedAt": "2023-05-25T02:23:37"
     },
     {
-      "status": "success",
       "postId": 12,
       "title": "this",
       "content": "so",
@@ -1212,7 +1118,6 @@
       "tags": ["java"],
       "comments": [
         {
-          "status": "success",
           "postId": 12,
           "commentId": 5,
           "comment": "테스트 중",
@@ -1226,7 +1131,6 @@
       "modifiedAt": "2023-05-19T13:00:22"
     },
     {
-      "status": "success",
       "postId": 11,
       "title": "Home v6.11.0",
       "content": "so",
@@ -1241,7 +1145,6 @@
       "tags": ["react", "router"],
       "comments": [
         {
-          "status": "success",
           "postId": 11,
           "commentId": 60,
           "comment": "home",
@@ -1251,7 +1154,6 @@
           "modifiedAt": "2023-05-24T17:15:25"
         },
         {
-          "status": "success",
           "postId": 11,
           "commentId": 61,
           "comment": "good",
@@ -1261,7 +1163,6 @@
           "modifiedAt": "2023-05-24T17:15:38"
         },
         {
-          "status": "success",
           "postId": 11,
           "commentId": 62,
           "comment": "soso",
@@ -1271,7 +1172,6 @@
           "modifiedAt": "2023-05-24T17:15:50"
         },
         {
-          "status": "success",
           "postId": 11,
           "commentId": 63,
           "comment": "bad",
@@ -1285,7 +1185,6 @@
       "modifiedAt": "2023-05-24T17:15:59"
     },
     {
-      "status": "success",
       "postId": 10,
       "title": "노션 사용자의 98%가 이 기능을 모르고 있다!?",
       "content": "노션 사용하시면 한번 참고하세요",
@@ -1300,7 +1199,6 @@
       "tags": ["db", "notion"],
       "comments": [
         {
-          "status": "success",
           "postId": 10,
           "commentId": 12,
           "comment": "매우 좋아요",
@@ -1310,7 +1208,6 @@
           "modifiedAt": "2023-05-20T01:46:33"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 13,
           "comment": "도움",
@@ -1320,7 +1217,6 @@
           "modifiedAt": "2023-05-20T01:46:54"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 21,
           "comment": "괜찮음",
@@ -1330,7 +1226,6 @@
           "modifiedAt": "2023-05-20T01:51:30"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 22,
           "comment": "쏘쏘",
@@ -1340,7 +1235,6 @@
           "modifiedAt": "2023-05-20T01:51:41"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 23,
           "comment": "흠",
@@ -1350,7 +1244,6 @@
           "modifiedAt": "2023-05-20T01:51:51"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 24,
           "comment": "...",
@@ -1360,7 +1253,6 @@
           "modifiedAt": "2023-05-20T01:52:28"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 25,
           "comment": "...",
@@ -1370,7 +1262,6 @@
           "modifiedAt": "2023-05-20T01:52:47"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 26,
           "comment": "...",
@@ -1380,7 +1271,6 @@
           "modifiedAt": "2023-05-20T01:52:47"
         },
         {
-          "status": "success",
           "postId": 10,
           "commentId": 27,
           "comment": "...글세요",
@@ -1394,7 +1284,6 @@
       "modifiedAt": "2023-05-23T13:50:25"
     },
     {
-      "status": "success",
       "postId": 9,
       "title": "Http의 특성과 쿠키, 세션, 토큰",
       "content": "so",
@@ -1409,7 +1298,6 @@
       "tags": ["cookie", "http request", "authentication"],
       "comments": [
         {
-          "status": "success",
           "postId": 9,
           "commentId": 57,
           "comment": "보안 어려워요ㅠ",
@@ -1419,7 +1307,6 @@
           "modifiedAt": "2023-05-24T16:33:57"
         },
         {
-          "status": "success",
           "postId": 9,
           "commentId": 58,
           "comment": "쿠키 먹는건가요?",
@@ -1433,7 +1320,6 @@
       "modifiedAt": "2023-05-24T16:34:17"
     },
     {
-      "status": "success",
       "postId": 8,
       "title": "state of 2022 js",
       "content": "so",
@@ -1448,7 +1334,6 @@
       "tags": ["javascript, trend"],
       "comments": [
         {
-          "status": "success",
           "postId": 8,
           "commentId": 17,
           "comment": "글세요",
@@ -1458,7 +1343,6 @@
           "modifiedAt": "2023-05-20T01:49:16"
         },
         {
-          "status": "success",
           "postId": 8,
           "commentId": 18,
           "comment": "도움됨",
@@ -1468,7 +1352,6 @@
           "modifiedAt": "2023-05-20T01:49:34"
         },
         {
-          "status": "success",
           "postId": 8,
           "commentId": 41,
           "comment": "...굿",
@@ -1478,7 +1361,6 @@
           "modifiedAt": "2023-05-20T01:54:42"
         },
         {
-          "status": "success",
           "postId": 8,
           "commentId": 42,
           "comment": "...굿",
@@ -1488,7 +1370,6 @@
           "modifiedAt": "2023-05-20T01:54:44"
         },
         {
-          "status": "success",
           "postId": 8,
           "commentId": 43,
           "comment": "...굿",
@@ -1498,7 +1379,6 @@
           "modifiedAt": "2023-05-20T01:54:46"
         },
         {
-          "status": "success",
           "postId": 8,
           "commentId": 44,
           "comment": "...굿",
@@ -1512,7 +1392,6 @@
       "modifiedAt": "2023-05-20T01:54:48"
     },
     {
-      "status": "success",
       "postId": 7,
       "title": "The Ultimate Redux Course 2023 - [LATEST Redux-toolkit]",
       "content": "so",
@@ -1527,7 +1406,6 @@
       "tags": ["redux", "toolkit"],
       "comments": [
         {
-          "status": "success",
           "postId": 7,
           "commentId": 14,
           "comment": "별로",
@@ -1537,7 +1415,6 @@
           "modifiedAt": "2023-05-20T01:48:25"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 15,
           "comment": "음?",
@@ -1547,7 +1424,6 @@
           "modifiedAt": "2023-05-20T01:48:42"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 16,
           "comment": "잘",
@@ -1557,7 +1433,6 @@
           "modifiedAt": "2023-05-20T01:48:56"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 19,
           "comment": "도움됨",
@@ -1567,7 +1442,6 @@
           "modifiedAt": "2023-05-20T01:50:21"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 20,
           "comment": "괜찮음",
@@ -1577,7 +1451,6 @@
           "modifiedAt": "2023-05-20T01:51:17"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 28,
           "comment": "...글세요",
@@ -1587,7 +1460,6 @@
           "modifiedAt": "2023-05-20T01:53:31"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 29,
           "comment": "...굿",
@@ -1597,7 +1469,6 @@
           "modifiedAt": "2023-05-20T01:53:37"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 30,
           "comment": "...굿",
@@ -1607,7 +1478,6 @@
           "modifiedAt": "2023-05-20T01:53:40"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 31,
           "comment": "...굿",
@@ -1617,7 +1487,6 @@
           "modifiedAt": "2023-05-20T01:53:47"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 32,
           "comment": "...굿",
@@ -1627,7 +1496,6 @@
           "modifiedAt": "2023-05-20T01:54:03"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 33,
           "comment": "...굿",
@@ -1637,7 +1505,6 @@
           "modifiedAt": "2023-05-20T01:54:04"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 34,
           "comment": "...굿",
@@ -1647,7 +1514,6 @@
           "modifiedAt": "2023-05-20T01:54:05"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 35,
           "comment": "...굿",
@@ -1657,7 +1523,6 @@
           "modifiedAt": "2023-05-20T01:54:09"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 36,
           "comment": "...굿",
@@ -1667,7 +1532,6 @@
           "modifiedAt": "2023-05-20T01:54:10"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 37,
           "comment": "...굿",
@@ -1677,7 +1541,6 @@
           "modifiedAt": "2023-05-20T01:54:19"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 38,
           "comment": "...굿",
@@ -1687,7 +1550,6 @@
           "modifiedAt": "2023-05-20T01:54:23"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 39,
           "comment": "...굿",
@@ -1697,7 +1559,6 @@
           "modifiedAt": "2023-05-20T01:54:25"
         },
         {
-          "status": "success",
           "postId": 7,
           "commentId": 40,
           "comment": "...굿",
@@ -1711,7 +1572,6 @@
       "modifiedAt": "2023-05-20T01:54:29"
     },
     {
-      "status": "success",
       "postId": 6,
       "title": "Webpack 배우기",
       "content": "내용",
@@ -1726,7 +1586,6 @@
       "tags": ["webpack"],
       "comments": [
         {
-          "status": "success",
           "postId": 6,
           "commentId": 54,
           "comment": "배우기",
@@ -1736,7 +1595,6 @@
           "modifiedAt": "2023-05-24T16:02:35"
         },
         {
-          "status": "success",
           "postId": 6,
           "commentId": 55,
           "comment": "좋아요",
@@ -1746,7 +1604,6 @@
           "modifiedAt": "2023-05-24T16:02:47"
         },
         {
-          "status": "success",
           "postId": 6,
           "commentId": 56,
           "comment": "좋아요",
@@ -1760,7 +1617,6 @@
       "modifiedAt": "2023-05-24T16:02:59"
     },
     {
-      "status": "success",
       "postId": 5,
       "title": "2022 회고와 2023년 개발 트랜드",
       "content": "2022년과 2023년",
@@ -1775,7 +1631,6 @@
       "tags": ["webpack", "2023", "2022"],
       "comments": [
         {
-          "status": "success",
           "postId": 5,
           "commentId": 4,
           "comment": "테스트 중",
@@ -1789,7 +1644,6 @@
       "modifiedAt": "2023-05-23T07:35:36"
     },
     {
-      "status": "success",
       "postId": 4,
       "title": "[네트워크] OSI 7 계층 (OSI 7 Layer)",
       "content": "네트워크",
@@ -1804,7 +1658,6 @@
       "tags": ["webpack"],
       "comments": [
         {
-          "status": "success",
           "postId": 4,
           "commentId": 10,
           "comment": "변경~",
@@ -1814,7 +1667,6 @@
           "modifiedAt": "2023-05-19T15:35:33"
         },
         {
-          "status": "success",
           "postId": 4,
           "commentId": 45,
           "comment": "ㄷㄷ",

@@ -1,29 +1,41 @@
+import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
-import { FileUploader } from 'react-drag-drop-files';
+import { collection, addDoc } from 'firebase/firestore';
 
+import { useDispatch, useSelector } from 'react-redux';
 import StarRating from '../components/StarRating';
 import ProfileLine from '../components/UI/ProfileLine';
 import Tag from '../components/UI/Tag';
 import Input from '../components/UI/Input';
-import axios from '../utils/axios';
-import convertToBase64 from '../utils/convertToBase64';
+import { firebaseDB } from '../utils/firebaseApp';
+import { addDevelopmentPostAction } from '../store/allDevelopmentSlice';
 
 // form 관련 라이브러리 -> react hook 또는 다른 라이브러리
 // render tree
 // usestate 값 유지되는 것?
 function NewPost() {
+  const dispatch = useDispatch();
+  const userInfo = useSelector(state => state.user);
+  console.log('userInfo id🚀', userInfo);
   const [newPostInfo, setNewPostInfo] = useState({
-    title: '',
-    content: '',
+    title: 'jwt기반 로그인 인증',
+    content:
+      'jwt 기반 로그인을 배울 수 있으며, accessToken refreshToken을 어디에 저장하며 저장할 시 생길 수 있는 props and cops를 알 수 있습니다',
     tags: { arr: [], value: '' },
     sorta: '',
     star: 0,
-    memberId: 1, // 임의
+    // TODO: userId mapping 필요!!
     sourceMedia: 'velog', // 임의
-    thumbnailImage: '', // 임의
-    sourceURL: 'https://velog.io/@codren/%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5', // 임의
+    thumbnailImage:
+      'https://velog.velcdn.com/images/_woogie/post/800da4e3-30e7-4211-a46d-f3f9a0eab81c/jwt.jpg', // 임의
+    sourceURL:
+      'https://velog.io/@_woogie/JWT-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EB%B0%A9%EC%8B%9D-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-feat.-session%EC%97%90%EC%84%9C-jwt%EB%A1%9C', // 임의
+    createdAt: '',
+    modifiedAt: '',
+    // ! Error log: 아래와 같이 state tookit에 있는 것에 초기값으로 설정하면 빈 값이 들어오는데
+    // ! 이는 코드의 순서와 같이 순차적으로 state를 가져오지 않는 것 같다.
+    author: '',
   });
-  const imageFileTypes = ['JPEG', 'PNG', 'GIF'];
 
   const onStarClickHandler = starValue =>
     setNewPostInfo(prev => ({ ...prev, star: starValue }));
@@ -69,30 +81,37 @@ function NewPost() {
     setNewPostInfo(prev => ({ ...prev, content: e.target.value }));
   const onSourceURLChangeHandler = e =>
     setNewPostInfo(prev => ({ ...prev, sourceURL: e.target.value }));
-  // const onImageChangeHandler = async image => {
-  //   const imageFile = image[0];
-  //   const base64Image = await convertToBase64(imageFile);
-  //   setNewPostInfo(prev => ({ ...prev, thumbnailImage: base64Image }));
-  //   console.log('imageFile 👉🏻', imageFile);
-  //   console.log('base64Image 👇', base64Image);
-  // };
+  const onSourceMediaChangeHandler = e =>
+    setNewPostInfo(prev => ({ ...prev, sourceMedia: e.target.value }));
 
   const onThumbnailChangeHandler = e =>
     setNewPostInfo(prev => ({ ...prev, thumbnailImage: e.target.value }));
 
   const onAddNewPostClickHandler = async () => {
-    const copyNewPost = { ...newPostInfo, tags: newPostInfo.tags.arr };
-    console.log('보낸 데이터 👉🏻', copyNewPost);
-    try {
-      const addNewDevelopmentPost = await axios.post('posts', copyNewPost);
-      if (addNewDevelopmentPost.status >= 200 && addNewDevelopmentPost.status < 300) {
-        console.log('✅ success!!', addNewDevelopmentPost.data);
-      }
-    } catch (err) {
-      console.log(err.message);
-    }
+    // const copyNewPost = { ...newPostInfo, tags: newPostInfo.tags.arr };
+    // console.log(`보낸 데이터 👉🏻`, copyNewPost);
+    // try {
+    //   const developmentDoc = await addDoc(
+    //     collection(firebaseDB, 'development'),
+    //     copyNewPost,
+    //   );
+    //   console.log(`✅ success!! development Doc id👉🏻`, developmentDoc.id);
+    // } catch (err) {
+    //   console.log(err.message);
+    // }
+    const copyNewPostInfo = {
+      ...newPostInfo,
+      createdAt: new Date(),
+      modifiedAt: new Date(),
+      author: userInfo.id,
+      tags: newPostInfo.tags.arr,
+      id: nanoid(),
+    };
+    dispatch(addDevelopmentPostAction(copyNewPostInfo));
   };
 
+  console.log(newPostInfo);
+  console.log(userInfo);
   return (
     <div className="w-full mt-main-top flex flex-col">
       <h2>
@@ -127,12 +146,6 @@ function NewPost() {
         </ProfileLine>
         <ProfileLine title="썸네일" content="링크를 입력하세요" className="px-7 py-7">
           <div className="flex flex-col items-center">
-            {/* <FileUploader
-              multiple
-              handleChange={onImageChangeHandler}
-              name="file"
-              types={imageFileTypes}
-            /> */}
             <Input
               placeholder="썸네일을 입력하세요"
               className="w-full text-gray13 bg-gray1 outline-none"
@@ -147,6 +160,14 @@ function NewPost() {
               />
             )}
           </div>
+        </ProfileLine>
+        <ProfileLine title="매체" content="매체를 입력하세요" className="px-7 py-7">
+          <Input
+            placeholder="링크를 입력하세요"
+            className="w-full text-gray13 bg-gray1 outline-none"
+            value={newPostInfo.sourceMedia}
+            onChangeHandler={onSourceMediaChangeHandler}
+          />
         </ProfileLine>
         <ProfileLine title="링크" content="링크를 입력하세요" className="px-7 py-7">
           <Input

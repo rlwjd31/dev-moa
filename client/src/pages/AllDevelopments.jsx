@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-import fs from 'fs';
+import Swal from 'sweetalert2';
 import Aside from '../components/layout/Aside';
 import Card from '../components/UI/Card';
 import Item from '../components/Item';
@@ -22,6 +22,8 @@ function AllDevelopments() {
   });
   const [accordianVisible, setAccordianVisible] = useState(false);
   const [paginationValue, setPaginationValue] = useState(1);
+  const navigator = useNavigate();
+  const { user } = useSelector(state => state);
 
   const onSortaButtonClickHandler = e =>
     setFilterValue(prev => ({ ...prev, sorta: e.target.value }));
@@ -34,6 +36,32 @@ function AllDevelopments() {
     setAccordianVisible(false);
   };
 
+  // ! Link의 to property가 동작하기 이전에 preventDefault로 이동하기 전에 action을 취할 수 있다.
+  const onNewDevelopmentClickHandler = async e => {
+    e.preventDefault();
+
+    if (!user.isLogin) {
+      const alertResult = await Swal.fire({
+        showDenyButton: true,
+        denyButtonText: '취소',
+        title: '로그인이 필요한 서비스입니다 🥲',
+        confirmButtonText: '확인',
+      });
+
+      if (alertResult.isConfirmed) {
+        navigator('/user/login');
+        return;
+      }
+
+      if (alertResult.isDenied) {
+        return;
+      }
+      return;
+    }
+
+    navigator('/developments/new');
+  };
+
   const onPaginationButtonClickHandler = pageValue => setPaginationValue(pageValue);
 
   const activeStyle = 'bg-black3 text-white1';
@@ -41,7 +69,6 @@ function AllDevelopments() {
 
   useEffect(() => {
     dispatch(fetchAllDevelopmentsAction());
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -130,8 +157,12 @@ function AllDevelopments() {
             </div>
           </div>
           <h3 className="flex items-center text-[1.2rem] mt-5 border-b-[1px] border-solid border-gray4">
-            <Link to="/developments/new" className="flex w-32 py-7 pr-4">
-              <PencilIcon className="w-5 h-5 mr-3" />{' '}
+            <Link
+              to="/developments/new"
+              onClick={onNewDevelopmentClickHandler}
+              className="flex w-32 py-7 pr-4"
+            >
+              <PencilIcon className="w-5 h-5 mr-3" />
               <span className="font-bold">글 쓰기</span>
             </Link>
           </h3>
