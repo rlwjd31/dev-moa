@@ -18,7 +18,6 @@ function Auth() {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useSelector(state => state);
   const dispatch = useDispatch();
-  console.log('redux from user🚀', user);
 
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -39,7 +38,6 @@ function Auth() {
       // dispatch(getUserInfoAction(loginInfo));
 
       const userId = await login(loginInfo.email, loginInfo.password);
-      // console.log(`loginResponse`, userId);
       dispatch(getUserInfoAction(userId));
       await Swal.fire({
         position: 'center',

@@ -1,18 +1,18 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addDevelopmentPost } from '../api/development';
+import { addDevelopment } from '../api/development';
 
 export const addDevelopmentPostAction = createAsyncThunk(
   'addDevelopmentPost',
   async (newDevelopmentInfo, rejectWithValue) =>
-    addDevelopmentPost(newDevelopmentInfo, rejectWithValue),
+    addDevelopment(newDevelopmentInfo, rejectWithValue),
 );
 
 const initialState = {
   status: 'loading',
   data: [
     {
-      userId: '',
+      id: '',
       content: '',
       sorta: '',
       sourceMedia: '',
@@ -23,6 +23,7 @@ const initialState = {
       title: '',
       createdAt: '',
       modifiedAt: '',
+      author: '',
     },
   ],
 };
@@ -36,7 +37,6 @@ const allDevelopmentsSlice = createSlice({
     });
     builder.addCase(addDevelopmentPostAction.fulfilled, (state, action) => {
       state.status = 'success';
-      console.log(action.payload.newDevelopmentInfo);
       state.data.push(action.payload.newDevelopmentInfo);
     });
     builder.addCase(addDevelopmentPostAction.rejected, (state, action) => {

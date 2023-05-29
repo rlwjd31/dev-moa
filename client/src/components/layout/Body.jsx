@@ -8,7 +8,6 @@ import { handleUserIsLogin } from '../../api/auth';
 import { getUserInfoAction } from '../../store/userSlice';
 
 function Body({ children, layoutInfo }) {
-  // const { isLogin } = useSelector(state => state.user);
   const { isMainContentWidthScreen } = layoutInfo;
   const { user } = useSelector(state => state);
   const dispatch = useDispatch();
@@ -17,8 +16,6 @@ function Body({ children, layoutInfo }) {
     // 매 페이지마다 login을 확인
     handleUserIsLogin(userId => dispatch(getUserInfoAction(userId)));
   }, [dispatch]);
-
-  console.log(`user.isLogin 👉🏻 ${user.isLogin}`);
 
   return (
     <div className="w-screen flex flex-col items-center bg-gray1 font-noto-kr">

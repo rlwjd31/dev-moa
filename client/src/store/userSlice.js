@@ -14,7 +14,7 @@ const initialState = {
   id: '',
   name: '',
   profileImage: '',
-  createAt: '',
+  createdAt: '',
   modifiedAt: '',
   isLogin: false,
 };

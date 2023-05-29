@@ -20,7 +20,6 @@ export const signUp = async (name, email, password) => {
       email,
       password,
     );
-    console.log('create user 👉🏻', user);
 
     // db에 사용자 추가
     const createdUserInfo = await setDoc(doc(firebaseDB, 'user', user.uid), {
@@ -31,7 +30,6 @@ export const signUp = async (name, email, password) => {
       id: user.uid,
       profileImage: getRandomProfileNum(),
     });
-    console.log('user added to db 👉🏻', createdUserInfo);
   } catch (err) {
     console.log(
       `firebase 사용자 추가 에러 ❌ 👉🏻 code: ${err.code}\tmessage: ${err.message}`,
@@ -44,7 +42,6 @@ export const signUp = async (name, email, password) => {
 export const login = async (email, password) => {
   try {
     const { user } = await signInWithEmailAndPassword(authFirebaseAPI, email, password);
-    console.log('login userInfo ->', user);
     // user.uid를 redux-toolkit의 userId로 넣어야하므로 return해 줌.
     return user.uid;
   } catch (err) {
@@ -77,14 +74,14 @@ export const getUserInfo = async userId => {
     if (userSnap.exists()) {
       const userData = userSnap.data();
       const userInfo = {
-        ...userSnap.data(),
+        ...userData,
         createdAt: userData.createdAt.toDate().toString(),
         modifiedAt: userData.modifiedAt.toDate().toString(),
         isLogin: true,
       };
 
-      console.log(`success to getUserInfo userInfo ✅ ->`, userInfo);
       // userSnap.data() will be exist in this case
+      console.log('userInfo', userInfo);
       return { userInfo }; // will be store in payload as object by redux-toolkit
     }
   } catch (err) {

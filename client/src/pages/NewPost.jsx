@@ -16,7 +16,6 @@ import { addDevelopmentPostAction } from '../store/allDevelopmentSlice';
 function NewPost() {
   const dispatch = useDispatch();
   const userInfo = useSelector(state => state.user);
-  console.log('userInfo id🚀', userInfo);
   const [newPostInfo, setNewPostInfo] = useState({
     title: 'jwt기반 로그인 인증',
     content:
@@ -88,30 +87,21 @@ function NewPost() {
     setNewPostInfo(prev => ({ ...prev, thumbnailImage: e.target.value }));
 
   const onAddNewPostClickHandler = async () => {
-    // const copyNewPost = { ...newPostInfo, tags: newPostInfo.tags.arr };
-    // console.log(`보낸 데이터 👉🏻`, copyNewPost);
-    // try {
-    //   const developmentDoc = await addDoc(
-    //     collection(firebaseDB, 'development'),
-    //     copyNewPost,
-    //   );
-    //   console.log(`✅ success!! development Doc id👉🏻`, developmentDoc.id);
-    // } catch (err) {
-    //   console.log(err.message);
-    // }
     const copyNewPostInfo = {
       ...newPostInfo,
-      createdAt: new Date(),
-      modifiedAt: new Date(),
-      author: userInfo.id,
+      createdAt: new Date().toString(),
+      modifiedAt: new Date().toString(),
+      author: {
+        id: userInfo.id,
+        name: userInfo.name,
+        profileImage: userInfo.profileImage,
+      },
       tags: newPostInfo.tags.arr,
       id: nanoid(),
     };
     dispatch(addDevelopmentPostAction(copyNewPostInfo));
   };
 
-  console.log(newPostInfo);
-  console.log(userInfo);
   return (
     <div className="w-full mt-main-top flex flex-col">
       <h2>
