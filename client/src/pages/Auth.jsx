@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 
 import { GithubIcon, GoogleIcon, KakaoIcon } from '../components/Icons';
 import { login, signUp } from '../api/auth';
+import { getUserInfoAction } from '../store/userSlice';
 
 function Auth() {
   const location = useLocation();
@@ -15,6 +16,9 @@ function Auth() {
   const isLoginPage = location.pathname === '/user/login';
   const isSignUpPage = location.pathname === '/user/signup';
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = useSelector(state => state);
+  const dispatch = useDispatch();
+  console.log('redux from user🚀', user);
 
   const [loginInfo, setLoginInfo] = useState({
     email: '',
@@ -34,13 +38,15 @@ function Auth() {
     if (isLoginPage) {
       // dispatch(getUserInfoAction(loginInfo));
 
-      await login(loginInfo.email, loginInfo.password);
+      const userId = await login(loginInfo.email, loginInfo.password);
+      // console.log(`loginResponse`, userId);
+      dispatch(getUserInfoAction(userId));
       await Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'login success ✅\n\nwill be redirect to Home',
         showConfirmButton: false,
-        timer: 1000,
+        timer: 2000,
         willClose: () => {
           // loading은 page벗어나고 다시 돌아오는 시점에 false로 될 텐데 해 줄 필요가 있나...?
           setIsLoading(prev => false);
@@ -48,13 +54,13 @@ function Auth() {
         },
       });
     } else if (isSignUpPage) {
-      await signUp(signUpInfo.email, signUpInfo.password);
+      await signUp(signUpInfo.userName, signUpInfo.email, signUpInfo.password);
       await Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'create account success ✅\n\nwill be redirect to Home',
         showConfirmButton: false,
-        timer: 1000,
+        timer: 2000,
         willClose: () => {
           // loading은 page벗어나고 다시 돌아오는 시점에 false로 될 텐데 해 줄 필요가 있나...?
           setIsLoading(prev => false);

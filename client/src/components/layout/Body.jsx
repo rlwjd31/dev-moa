@@ -10,13 +10,14 @@ function Body({ children, layoutInfo }) {
   // const { isLogin } = useSelector(state => state.user);
   const { isMainContentWidthScreen } = layoutInfo;
   const [isLogin, setIsLogin] = useState(false);
+  const userInfo = useSelector(state => state.user);
 
   useEffect(() => {
     handleUserIsLogin(setIsLogin);
   }, [isLogin]);
 
   console.log('isLogin value in Body 🚀', isLogin);
-
+  console.log('userInfo in Body.jsx 🚀', userInfo);
   return (
     <div className="w-screen flex flex-col items-center bg-gray1 font-noto-kr">
       <Header isLogin={isLogin} />
