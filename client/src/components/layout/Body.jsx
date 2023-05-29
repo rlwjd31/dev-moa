@@ -10,18 +10,19 @@ import { getUserInfoAction } from '../../store/userSlice';
 function Body({ children, layoutInfo }) {
   // const { isLogin } = useSelector(state => state.user);
   const { isMainContentWidthScreen } = layoutInfo;
-  const [isLogin, setIsLogin] = useState(false);
+  const { user } = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    handleUserIsLogin(setIsLogin, userId => dispatch(getUserInfoAction(userId)));
-  }, [isLogin, dispatch]);
+    // 매 페이지마다 login을 확인
+    handleUserIsLogin(userId => dispatch(getUserInfoAction(userId)));
+  }, [dispatch]);
 
-  console.log(`isLogin 👉🏻 ${isLogin}`);
+  console.log(`user.isLogin 👉🏻 ${user.isLogin}`);
 
   return (
     <div className="w-screen flex flex-col items-center bg-gray1 font-noto-kr">
-      <Header isLogin={isLogin} />
+      <Header isLogin={user.isLogin} />
       {isMainContentWidthScreen && children}
 
       {!isMainContentWidthScreen && (

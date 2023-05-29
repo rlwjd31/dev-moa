@@ -54,16 +54,12 @@ export const login = async (email, password) => {
   return null;
 };
 
-export const handleUserIsLogin = (setIsLoginCallback, getUserInfoCallback) => {
+export const handleUserIsLogin = getUserInfoCallback => {
   onAuthStateChanged(authFirebaseAPI, user => {
     if (user) {
-      setIsLoginCallback(true);
       getUserInfoCallback(user.uid);
-
-      return null;
     }
 
-    setIsLoginCallback(false);
     return null;
   });
 };
@@ -84,6 +80,7 @@ export const getUserInfo = async userId => {
         ...userSnap.data(),
         createdAt: userData.createdAt.toDate().toString(),
         modifiedAt: userData.modifiedAt.toDate().toString(),
+        isLogin: true,
       };
 
       console.log(`success to getUserInfo userInfo ✅ ->`, userInfo);
