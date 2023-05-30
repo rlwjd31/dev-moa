@@ -1,6 +1,6 @@
 // TODO: develop VS Prod mode에 따른 프로젝트 환경 셋팅
 
-import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import axios from '../utils/axios';
 import { firebaseDB } from '../utils/firebaseApp';
 
@@ -49,6 +49,23 @@ export const fetchAllDevelopments = async (_, rejectWithValue) => {
   }
 
   return null;
+};
+
+// * collection이 development에 해당하는 모든 doc들 가져오기
+// * 모든 개발 게시글들을 패칭
+export const getAllDevelopments = async (_, rejectWithValue) => {
+  const allDevelopments = [];
+  const allDevelopmentsCollection = collection(firebaseDB, 'development');
+
+  try {
+    const allDevelopmentsSnapshot = await getDocs(allDevelopmentsCollection);
+    allDevelopmentsSnapshot.forEach(devDoc => allDevelopments.push(devDoc.data()));
+
+    return allDevelopments;
+  } catch (err) {
+    console.log('getAllDevelopments Error!!❌', err.message);
+    return rejectWithValue({ error: err.message }); // rejectWithValue적용
+  }
 };
 
 export const addDevelopment = async (newDevelopmentInfo, rejectWithValue) => {

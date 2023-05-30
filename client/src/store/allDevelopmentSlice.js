@@ -1,6 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { addDevelopment } from '../api/development';
+import { addDevelopment, getAllDevelopments } from '../api/development';
+
+export const getAllDevelopmentsAction = createAsyncThunk(
+  'getAllDevelopments',
+  async (_, rejectWithValue) => getAllDevelopments(_, rejectWithValue),
+);
 
 export const addDevelopmentPostAction = createAsyncThunk(
   'addDevelopmentPost',
@@ -36,6 +41,16 @@ const allDevelopmentsSlice = createSlice({
   name: 'allDevelopments',
   initialState,
   extraReducers: builder => {
+    builder.addCase(getAllDevelopmentsAction.pending, (state, action) => {
+      state.status = 'loading';
+    });
+    builder.addCase(getAllDevelopmentsAction.fulfilled, (state, action) => {
+      state.status = 'success';
+      state.data = action.payload;
+    });
+    builder.addCase(getAllDevelopmentsAction.rejected, (state, action) => {
+      state.status = 'failed';
+    });
     builder.addCase(addDevelopmentPostAction.pending, (state, action) => {
       state.status = 'loading';
     });

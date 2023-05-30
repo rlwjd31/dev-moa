@@ -11,9 +11,11 @@ import Accordian from '../components/UI/Accordian';
 import { fetchAllDevelopmentsAction } from '../store/developmentSlice';
 import { ChevronDownIcon, PencilIcon } from '../components/Icons';
 import Pagination from '../components/UI/Paginations';
+import { getAllDevelopmentsAction } from '../store/allDevelopmentSlice';
 
 function AllDevelopments() {
-  const { allDevelopments } = useSelector(state => state.developments);
+  const { allDevelopments } = useSelector(state => state);
+  // const { allDevelopments } = useSelector(state => state.developments);
   const dispatch = useDispatch();
   const [filterValue, setFilterValue] = useState({
     tag: 'All',
@@ -69,6 +71,7 @@ function AllDevelopments() {
 
   useEffect(() => {
     dispatch(fetchAllDevelopmentsAction());
+    dispatch(getAllDevelopmentsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -86,7 +89,8 @@ function AllDevelopments() {
         : developmentInfo.sorta.toLowerCase() === filterValue.sorta.toLowerCase(),
     );
   // TODO: sort로직 구현해야 됨.
-
+  console.log('getAllDevelopmentsAction Data 👇');
+  console.log(allDevelopments);
   const paginationConfig = {
     pagePerView: 12,
     activeColor: 'text-activeBlue',

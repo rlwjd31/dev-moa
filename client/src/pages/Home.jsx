@@ -10,6 +10,7 @@ import {
 import Carousel from '../components/Carousel';
 import Card from '../components/UI/Card';
 import Item from '../components/Item';
+import { getAllDevelopmentsAction } from '../store/allDevelopmentSlice';
 
 const CaurouselConfig = {
   auto: true,
@@ -19,15 +20,13 @@ const CaurouselConfig = {
 };
 
 function Home() {
-  const { popularRanking, realTimeRanking, allDevelopments } = useSelector(
-    state => state.developments,
-  );
+  const { popularRanking, realTimeRanking } = useSelector(state => state.developments);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPopularDevelopmentsAction());
     dispatch(fetchRealTimeDevelopmentsAction());
-    dispatch(fetchAllDevelopmentsAction());
+    dispatch(getAllDevelopmentsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -75,7 +74,7 @@ function Home() {
             ))}
           </div>
         </div>
-        <div className="w-full flex flex-col max-w-limit mt-32">
+        {/* <div className="w-full flex flex-col max-w-limit mt-32">
           <h3 className="text-[1.6rem] font-bold  mb-[2rem]">
             당신이 찾고 있던, 그 장비
           </h3>
@@ -86,7 +85,7 @@ function Home() {
               </Card>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

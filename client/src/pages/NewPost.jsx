@@ -28,6 +28,7 @@ function NewPost() {
     tags: { arr: [], value: '' },
     sorta: '',
     star: 0,
+    starAvg: 0,
     // TODO: userId mapping 필요!!
     sourceMedia: 'velog', // 임의
     thumbnailImage:
@@ -43,7 +44,7 @@ function NewPost() {
   });
 
   const onStarClickHandler = starValue =>
-    setNewPostInfo(prev => ({ ...prev, star: starValue }));
+    setNewPostInfo(prev => ({ ...prev, star: starValue, starAvg: starValue }));
   const onSortaClickHandler = newSortaValue => {
     let tmpSortaValue = '';
 
