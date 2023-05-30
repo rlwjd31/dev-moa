@@ -75,12 +75,12 @@ function DetailDevelopment() {
                 alt="썸네일 및 대표 사진"
               />
             </Link>
-            <div className="flex">
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
+            <div className="flex justify-start mb-10 gap-1">
+              <p className="flex justify-center text-[24px] text-[#7199ff]">&#9733;</p>
+              <p className="flex justify-center text-[24px] text-[#7199ff]">&#9733;</p>
+              <p className="flex justify-center text-[24px] text-[#7199ff]">&#9733;</p>
+              <p className="flex justify-center text-[24px] text-[#7199ff]">&#9733;</p>
+              <p className="flex justify-center text-[24px] text-[#7199ff]">&#9733;</p>
             </div>
             <div className="w-full h-[191px] text-black3 text-20px font-normal mb-[18px]">
               {devData.content}
