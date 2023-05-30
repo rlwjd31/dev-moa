@@ -4,7 +4,7 @@ import { StarIcon, UnionIcon } from './Icons';
 
 function Item(props) {
   const {
-    postId,
+    id,
     title,
     sourceMedia,
     thumbnailImage,
@@ -17,7 +17,7 @@ function Item(props) {
   } = props;
 
   return (
-    <Link to={`/developments/${postId}`}>
+    <Link to={`/developments/${id}`}>
       <div className="w-full h-[12rem] flex justify-center items-center bg-yellow-100">
         <img
           src={thumbnailImage}

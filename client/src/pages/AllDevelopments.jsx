@@ -175,7 +175,7 @@ function AllDevelopments() {
                 paginationValue * paginationConfig.pagePerView,
               )
               .map(info => (
-                <Card key={info.postId} flexItemwidth="31%">
+                <Card key={info.id} flexItemwidth="31%">
                   <Item {...info} />
                 </Card>
               ))}

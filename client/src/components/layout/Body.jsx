@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from '../../utils/axios';
+import { getAllDevelopmentsAction } from '../../store/allDevelopmentSlice';
 
 import Footer from './Footer';
 import Header from './Header';
@@ -15,6 +15,7 @@ function Body({ children, layoutInfo }) {
   useEffect(() => {
     // 매 페이지마다 login을 확인
     handleUserIsLogin(userId => dispatch(getUserInfoAction(userId)));
+    dispatch(getAllDevelopmentsAction());
   }, [dispatch]);
 
   return (

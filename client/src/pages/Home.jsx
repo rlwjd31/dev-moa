@@ -1,10 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { useEffect } from 'react';
 import Carousel from '../components/Carousel';
 import Card from '../components/UI/Card';
 import Item from '../components/Item';
-import { getAllDevelopmentsAction } from '../store/allDevelopmentSlice';
 
 const CaurouselConfig = {
   auto: true,
@@ -15,11 +13,6 @@ const CaurouselConfig = {
 
 function Home() {
   const { allDevelopments } = useSelector(state => state);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllDevelopmentsAction());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   const popularDevelopments = [];
 
   [...allDevelopments.data].forEach(dev => {
