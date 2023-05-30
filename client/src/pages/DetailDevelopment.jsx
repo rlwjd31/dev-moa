@@ -100,7 +100,7 @@ function DetailDevelopment() {
             </div>
             <div>
               <p className="text-[20px] font-bold text-black3">
-                리뷰하기 ({devData?.comments?.length}){' '}
+                리뷰하기 ({devData?.comments?.length || 0}){' '}
               </p>
               <AddComment />
               <div className="mb-[52px]">
