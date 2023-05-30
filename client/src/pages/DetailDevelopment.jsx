@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchAllDevelopmentsAction } from '../store/developmentSlice';
 
 import { HeartIcon, StarIcon } from '../components/Icons';
 import Tag from '../components/UI/Tag';

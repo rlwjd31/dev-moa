@@ -8,7 +8,6 @@ import Card from '../components/UI/Card';
 import Item from '../components/Item';
 import Button from '../components/UI/Button';
 import Accordian from '../components/UI/Accordian';
-import { fetchAllDevelopmentsAction } from '../store/developmentSlice';
 import { ChevronDownIcon, PencilIcon } from '../components/Icons';
 import Pagination from '../components/UI/Paginations';
 import { getAllDevelopmentsAction } from '../store/allDevelopmentSlice';
@@ -70,7 +69,6 @@ function AllDevelopments() {
   const notActiveStyle = 'bg-white1 text-black3';
 
   useEffect(() => {
-    dispatch(fetchAllDevelopmentsAction());
     dispatch(getAllDevelopmentsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -89,8 +87,6 @@ function AllDevelopments() {
         : developmentInfo.sorta.toLowerCase() === filterValue.sorta.toLowerCase(),
     );
   // TODO: sort로직 구현해야 됨.
-  console.log('getAllDevelopmentsAction Data 👇');
-  console.log(allDevelopments);
   const paginationConfig = {
     pagePerView: 12,
     activeColor: 'text-activeBlue',

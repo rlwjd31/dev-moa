@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit';
 import { addDevelopment, getAllDevelopments } from '../api/development';
 
 export const getAllDevelopmentsAction = createAsyncThunk(
@@ -35,11 +35,44 @@ const initialState = {
       recommends: 0,
     },
   ],
+  popularDevelopments: [],
+  realTimeDevelopments: [],
 };
 
 const allDevelopmentsSlice = createSlice({
   name: 'allDevelopments',
   initialState,
+  reducers: {
+    getPopularDevelopments: (state, _) => {
+      console.log('state', current(state));
+      const sortedWithPopular = [...state.data]
+        .sort((a, b) => b.recommends - a.recommends)
+        .slice(0, 3);
+      console.log('sortedWithPopular', sortedWithPopular);
+      state.popularDevelopments = sortedWithPopular;
+    },
+    getRealTimeDevelopments: (state, _) => {
+      // TODO: 실시간은 추가 구현이 필요 => 임시적으로 random한 게시글로 넣기
+      // const tmpIndices = [-1, -1, -1];
+      // const randomIndices = Array(3)
+      //   .fill(0)
+      //   .map((v, index) => {
+      //     let randomIndex = Math.floor(Math.random() * state.data.length);
+      //     while (tmpIndices.includes(randomIndex)) {
+      //       randomIndex = Math.floor(Math.random() * state.data.length);
+      //     }
+      //     tmpIndices[index] = randomIndex;
+      //     return randomIndex;
+      //   });
+      // console.log('randomIndices', randomIndices);
+      // const sortedWithRealTime = [
+      //   state.data[(randomIndices[0], randomIndices[1], randomIndices[2])],
+      // ];
+      // console.log('sortedWithRealTime', sortedWithRealTime);
+      // state.realTimeDevelopments = sortedWithRealTime;
+      return state;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getAllDevelopmentsAction.pending, (state, action) => {
       state.status = 'loading';
@@ -64,4 +97,6 @@ const allDevelopmentsSlice = createSlice({
   },
 });
 
+export const { getPopularDevelopments, getRealTimeDevelopments } =
+  allDevelopmentsSlice.actions;
 export default allDevelopmentsSlice;

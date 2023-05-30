@@ -14,6 +14,8 @@
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "firebase": "^9.22.1",
+    "firebase-tools": "^12.2.1",
+    "global": "^4.4.0",
     "nanoid": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

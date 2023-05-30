@@ -1,12 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useEffect } from 'react';
-import {
-  fetchPopularDevelopmentsAction,
-  fetchRealTimeDevelopmentsAction,
-  fetchAllDevelopmentsAction,
-} from '../store/developmentSlice';
-
 import Carousel from '../components/Carousel';
 import Card from '../components/UI/Card';
 import Item from '../components/Item';
@@ -20,15 +14,50 @@ const CaurouselConfig = {
 };
 
 function Home() {
-  const { popularRanking, realTimeRanking } = useSelector(state => state.developments);
+  const { allDevelopments } = useSelector(state => state);
   const dispatch = useDispatch();
-
   useEffect(() => {
-    dispatch(fetchPopularDevelopmentsAction());
-    dispatch(fetchRealTimeDevelopmentsAction());
     dispatch(getAllDevelopmentsAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const popularDevelopments = [];
+
+  [...allDevelopments.data].forEach(dev => {
+    if (dev.sorta === 'text') {
+      if (popularDevelopments[0] !== null) {
+        popularDevelopments[0] = dev;
+        return;
+      }
+
+      if (popularDevelopments[0].recommends < dev.recommends) {
+        popularDevelopments[0] = dev;
+      }
+    }
+    if (dev.sorta === 'video') {
+      if (popularDevelopments[1] !== null) {
+        popularDevelopments[1] = dev;
+        return;
+      }
+
+      if (popularDevelopments[1].recommends < dev.recommends) {
+        popularDevelopments[1] = dev;
+      }
+    }
+    if (dev.sorta === 'trend') {
+      if (popularDevelopments[2] !== null) {
+        popularDevelopments[2] = dev;
+        return;
+      }
+
+      if (popularDevelopments[2].recommends < dev.recommends) {
+        popularDevelopments[2] = dev;
+      }
+    }
+  });
+
+  const starAvgDevelopments = [...allDevelopments.data]
+    .sort((a, b) => b.starAvg - a.starAvg)
+    .slice(0, 3);
 
   return (
     <>
@@ -51,10 +80,10 @@ function Home() {
       {/* flex flex-col 같이 써주어야 items-center 먹음 */}
       <div className="w-full flex flex-col py-36 items-center bg-gray1">
         <div className="w-full flex flex-col max-w-limit">
-          <h3 className="text-[1.6rem] font-bold  mb-[2rem]">실시간 순위</h3>
+          <h3 className="text-[1.6rem] font-bold  mb-[2rem]">평점 순위</h3>
           <div className="w-full flex justify-between gap-8">
-            {realTimeRanking.data.map(info => (
-              <Card key={info.postId} flexItemwidth="33%">
+            {starAvgDevelopments.map(info => (
+              <Card key={info.id} flexItemwidth="33%">
                 <Item {...info} />
               </Card>
             ))}
@@ -63,8 +92,8 @@ function Home() {
         <div className="w-full flex flex-col max-w-limit mt-32">
           <h3 className="text-[1.6rem] font-bold  mb-[2rem]">인기 게시물</h3>
           <div className="w-full flex justify-between gap-8">
-            {popularRanking.data.map((info, index) => (
-              <Card key={info.postId} flexItemwidth="33%">
+            {popularDevelopments.map((info, index) => (
+              <Card key={info.id} flexItemwidth="33%">
                 <h1 className="pb-3 mb-7 text-lg font-medium border-b-[1px] border-solid border-gray4">
                   {/* eslint-disable-next-line no-nested-ternary */}
                   {index === 0 ? '글' : index === 1 ? '영상' : '트렌드'}
