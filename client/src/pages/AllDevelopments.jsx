@@ -109,12 +109,13 @@ function AllDevelopments() {
               'Webpack',
               'Css-in-js',
               'React',
-              'Vue',
-              'Angular',
+              'java',
+              'spring',
               'Nextjs',
               'Database',
               'Network',
               'Algorithm',
+              'etc',
             ],
           }}
           activeValue={filterValue.tag}

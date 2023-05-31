@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
-import { HeartIcon, StarIcon } from '../components/Icons';
+import { useEffect } from 'react';
+import { HeartIcon } from '../components/Icons';
 import Tag from '../components/UI/Tag';
 import DevComment from '../components/DevComment';
 import AddComment from '../components/AddComment';
@@ -28,8 +29,11 @@ function DetailDevelopment() {
     createdAt = `${year}년 ${month}월 ${day}일`;
   }
 
+  useEffect(() => {}, []);
+
   // console.log(year, month, day);
   // const createdAt = `${year}년 ${month}월 ${day}일`;
+  console.log('postId', postId);
   return (
     <>
       {isLoading === 'loading' && <LoadingPage />}
