@@ -52,6 +52,7 @@ function Home() {
     .sort((a, b) => b.starAvg - a.starAvg)
     .slice(0, 3);
 
+  console.log('배포 test');
   return (
     <>
       <div className="w-full flex justify-center pt-36 bg-gray3">
